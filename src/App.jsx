@@ -191,7 +191,7 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, ease: 'easeOut' }}
-            className="mx-auto w-64 md:w-[28rem] z-30 object-contain drop-shadow-lg"
+            className="mx-auto w-64 md:w-80 lg:w-96 z-30 object-contain drop-shadow-2xl"
           />
 
           <p className="font-serif text-xl md:text-3xl text-white/80 italic font-light tracking-wide mt-6">
@@ -201,12 +201,9 @@ const Hero = () => {
           <div className="pt-12 flex justify-center">
             <button
               onClick={() => document.getElementById('rituales').scrollIntoView({ behavior: 'smooth' })}
-              className="group relative flex items-center justify-center px-12 py-4 border-[1.5px] border-white/30 text-white overflow-hidden transition-all duration-700 hover:border-[#D4AF37]"
+              className="flex items-center justify-center px-10 py-4 border border-[#D4AF37]/50 backdrop-blur-md bg-white/5 text-white tracking-[0.3em] font-sans text-xs uppercase hover:bg-[#D4AF37] hover:text-black hover:border-[#D4AF37] transition-all duration-700"
             >
-              <span className="relative z-10 text-xs tracking-[0.3em] uppercase group-hover:text-white transition-colors duration-500">
-                Explorar Rituales
-              </span>
-              <div className="absolute inset-0 bg-[#D4AF37] transform scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom z-0 opacity-80" />
+              Explorar Rituales
             </button>
           </div>
         </motion.div>
