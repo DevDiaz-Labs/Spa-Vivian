@@ -2,6 +2,10 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Logo from './assets/logo-spa-vivian.webp'
+import Masaje from './assets/masaje.webp';
+import Descontractura from './assets/descontracturante.webp';
+import Reductor from './assets/reductor.webp';
+import Facial from './assets/facial.webp';
 import { Menu, X, MapPin, Phone, Instagram, ArrowRight, Minus, MessageCircle, Facebook } from 'lucide-react'
 
 const THEME = {
@@ -21,30 +25,26 @@ const SERVICES = [
   {
     id: "01",
     title: "Masaje Relajante",
-    description: "Una coreografía lenta de movimientos fluidos diseñada para silenciar el ruido mental y devolver la armonía al cuerpo.",
-    image: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&q=80&w=1200",
-    duration: "60 / 90 min"
+    description: "Una sinfonía de movimientos fluidos que disuelven la tensión y armonizan cuerpo y mente.",
+    image: Masaje
   },
   {
     id: "02",
-    title: "Deep Tissue & Release",
-    description: "Terapia estructural profunda. Liberamos la tensión acumulada en las capas musculares más profundas con precisión quirúrgica.",
-    image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80&w=1200",
-    duration: "60 min"
+    title: "Descontracturante",
+    description: "Terapia profunda enfocada en liberar la rigidez muscular y restaurar la movilidad natural.",
+    image: Descontractura
   },
   {
     id: "03",
-    title: "Escultura Corporal",
-    description: "Maderoterapia y drenaje linfático manual. Un ritual reductivo que redefine la silueta respetando la anatomía natural.",
-    image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80&w=1200",
-    duration: "90 min"
+    title: "Masaje Reductivo",
+    description: "Técnica vigorosa que remodela la silueta y estimula la vitalidad de la piel.",
+    image: Reductor
   },
   {
     id: "04",
-    title: "Facial Alta Costura",
-    description: "Hidratación profunda y luminosidad instantánea utilizando principios activos botánicos de la más alta pureza.",
-    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=1200",
-    duration: "75 min"
+    title: "Facial Hidratante",
+    description: "Ritual de luminosidad que nutre profundamente y revela el resplandor natural de tu rostro.",
+    image: Facial
   }
 ];
 
@@ -225,52 +225,36 @@ const ServiceItem = ({ service, index }) => {
 
   return (
     <div className="flex flex-col md:flex-row min-h-[80vh] w-full">
-      <div className={`w-full md:w-1/2 h-[60vh] md:h-auto overflow-hidden relative ${isEven ? 'md:order-1' : 'md:order-2'}`}>
-        <motion.div
-          initial={{ scale: 1.2 }}
-          whileInView={{ scale: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          className="w-full h-full"
-        >
+      {/* Image Section */}
+      <div className={`w-full md:w-1/2 relative p-12 md:p-24 ${isEven ? 'md:order-2' : 'md:order-1'} flex items-center justify-center`}>
+        <div className="relative w-full max-w-lg aspect-[4/5]">
+          {/* Gold Frame */}
+          <div className={`absolute top-4 ${isEven ? '-left-4' : '-right-4'} w-full h-full border border-[#D4AF37] z-0`} />
+
+          {/* Image */}
           <img
             src={service.image}
             alt={service.title}
-            className="w-full h-full object-cover"
+            className="relative z-10 w-full h-full object-cover shadow-xl"
           />
-        </motion.div>
-        <span className="absolute top-8 right-8 text-9xl font-serif text-white/10 mix-blend-overlay">
-          {service.id}
-        </span>
+        </div>
       </div>
 
-      <div className={`w-full md:w-1/2 bg-[#FFF0F5] flex flex-col justify-center p-12 md:p-24 lg:p-32 ${isEven ? 'md:order-2' : 'md:order-1'}`}>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+      {/* Text Section */}
+      <div className={`w-full md:w-1/2 bg-[#FFF0F5] flex flex-col justify-center p-12 md:p-24 lg:p-32 ${isEven ? 'md:order-1' : 'md:order-2'}`}>
+        <span className="text-[#D4AF37] text-sm tracking-[0.3em] font-sans mb-6">0{index + 1}</span>
+        <h3 className="font-serif text-4xl md:text-5xl text-[#1C1917] mb-8 leading-tight">
+          {service.title}
+        </h3>
+        <p className="font-sans text-gray-600 leading-relaxed mb-12 max-w-md">
+          {service.description}
+        </p>
+        <button
+          onClick={() => window.open(SOCIAL.whatsapp, '_blank')}
+          className="text-[#D4AF37] text-xs tracking-[0.2em] font-sans uppercase border-b border-[#D4AF37] pb-2 w-fit hover:text-black hover:border-black transition-colors duration-500"
         >
-          <div className="flex items-center gap-4 mb-6">
-            <Minus className="text-[#D4AF37]" size={40} strokeWidth={1} />
-            <span className="font-sans text-xs tracking-[0.2em] text-[#1C1917]/60 uppercase">
-              {service.duration}
-            </span>
-          </div>
-
-          <h3 className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#1C1917] mb-8 leading-tight">
-            {service.title}
-          </h3>
-
-          <p className="font-sans text-[#1C1917]/70 font-light leading-loose text-sm md:text-base tracking-wide mb-12 max-w-md">
-            {service.description}
-          </p>
-
-          <Button
-            variant="ghost"
-            onClick={() => window.open(SOCIAL.whatsapp, '_blank')}
-          >
-            Reservar Experiencia <ArrowRight size={16} className="ml-2" />
-          </Button>
-        </motion.div>
+          Reservar Experiencia
+        </button>
       </div>
     </div>
   );
@@ -392,7 +376,7 @@ const Footer = () => {
                 </div>
                 <div className="space-y-2">
                   <p className="font-sans text-white/80 font-light text-sm leading-relaxed">
-                    Olcuatitlan, Cantera Puente de Piedra
+                    Olcuautitlan, Cantera Puente de Piedra, Iztapalapa
                   </p>
                   <p className="font-sans text-white/60 font-light text-sm leading-relaxed">
                     CDMX 14040
