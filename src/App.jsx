@@ -337,44 +337,70 @@ const ParallaxQuote = () => {
 
 const Footer = () => {
   return (
-    <footer id="ubicación" className="bg-[#000000] text-[#FFF0F5] py-24 border-t border-white/5">
+    <footer id="ubicación" className="bg-gradient-to-b from-[#11100F] to-black text-[#FFF0F5] py-24 border-t border-[#D4AF37]/30">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-24">
-          <div className="space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12">
+
+          {/* Column 1: Info & Social (col-span-4) */}
+          <div className="lg:col-span-4 space-y-8">
             <h3 className="font-serif text-3xl tracking-widest text-[#D4AF37]">SPA VIVIAN</h3>
-            <p className="font-sans text-white/40 font-light text-sm leading-relaxed max-w-xs">
+            <p className="font-sans text-white/60 font-light text-sm leading-relaxed max-w-sm">
               Un santuario urbano dedicado a la preservación de la juventud y el cultivo de la paz interior.
             </p>
-            <div className="flex flex-col gap-4 mt-6">
-              <a href={SOCIAL.whatsapp} target="_blank" rel="noreferrer" className="flex items-center gap-3 group transition-all duration-300">
-                <MessageCircle size={24} className="text-[#D4AF37] group-hover:scale-110 transition-transform" />
-                <span className="font-sans text-sm text-gray-400 group-hover:text-[#D4AF37] tracking-wide">Envíanos un WhatsApp</span>
+
+            <div className="flex flex-col gap-6 mt-8">
+              {/* WhatsApp */}
+              <a href={SOCIAL.whatsapp} target="_blank" rel="noreferrer" className="flex items-center gap-4 group transition-all duration-300">
+                <div className="w-10 h-10 rounded-full bg-[#D4AF37]/10 flex items-center justify-center group-hover:bg-[#D4AF37] transition-colors duration-300">
+                  <MessageCircle size={20} className="text-[#D4AF37] group-hover:text-black transition-colors" />
+                </div>
+                <span className="font-sans text-sm text-gray-400 group-hover:text-[#D4AF37] tracking-wide transition-colors">Envíanos un WhatsApp</span>
               </a>
-              <a href="https://www.facebook.com/adyperezc/photos" target="_blank" rel="noreferrer" className="flex items-center gap-3 group transition-all duration-300">
-                <Facebook size={24} className="text-[#D4AF37] group-hover:scale-110 transition-transform" />
-                <span className="font-sans text-sm text-gray-400 group-hover:text-[#D4AF37] tracking-wide">Síguenos en Facebook</span>
+
+              {/* Facebook */}
+              <a href="https://www.facebook.com/adyperezc/photos" target="_blank" rel="noreferrer" className="flex items-center gap-4 group transition-all duration-300">
+                <div className="w-10 h-10 rounded-full bg-[#D4AF37]/10 flex items-center justify-center group-hover:bg-[#D4AF37] transition-colors duration-300">
+                  <Facebook size={20} className="text-[#D4AF37] group-hover:text-black transition-colors" />
+                </div>
+                <span className="font-sans text-sm text-gray-400 group-hover:text-[#D4AF37] tracking-wide transition-colors">Síguenos en Facebook</span>
               </a>
-              <a href={SOCIAL.instagram} target="_blank" rel="noreferrer" className="flex items-center gap-3 group transition-all duration-300">
-                <Instagram size={24} className="text-[#D4AF37] group-hover:scale-110 transition-transform" />
-                <span className="font-sans text-sm text-gray-400 group-hover:text-[#D4AF37] tracking-wide">@spa_vivian</span>
+
+              {/* Instagram */}
+              <a href={SOCIAL.instagram} target="_blank" rel="noreferrer" className="flex items-center gap-4 group transition-all duration-300">
+                <div className="w-10 h-10 rounded-full bg-[#D4AF37]/10 flex items-center justify-center group-hover:bg-[#D4AF37] transition-colors duration-300">
+                  <Instagram size={20} className="text-[#D4AF37] group-hover:text-black transition-colors" />
+                </div>
+                <span className="font-sans text-sm text-gray-400 group-hover:text-[#D4AF37] tracking-wide transition-colors">@spa_vivian</span>
               </a>
             </div>
           </div>
 
-          <div className="space-y-8">
-            <h4 className="font-sans text-xs tracking-[0.2em] uppercase text-[#D4AF37]">Visítanos</h4>
-            <div className="space-y-4">
-              <div className="flex gap-4 items-start">
-                <MapPin className="text-white/20 mt-1 shrink-0" size={16} />
-                <p className="font-sans text-white/60 font-light text-sm">
-                  Av. Principal #123<br />Lomas de Chapultepec, CDMX
-                </p>
-              </div>
-              <div className="flex gap-4 items-start">
-                <div className="w-4 h-4 mt-1 rounded-full border border-white/20 flex items-center justify-center shrink-0">
-                  <div className="w-1 h-1 bg-[#D4AF37] rounded-full"></div>
+          {/* Column 2: Address (col-span-3) */}
+          <div className="lg:col-span-3 space-y-8">
+            <h4 className="font-sans text-xs tracking-[0.2em] uppercase text-[#D4AF37] mb-6">Visítanos</h4>
+
+            <div className="space-y-6">
+              <div className="flex gap-4 items-start group">
+                <div className="mt-1 p-2 bg-white/5 rounded-full group-hover:bg-[#D4AF37]/20 transition-colors">
+                  <MapPin className="text-[#D4AF37]" size={18} />
                 </div>
-                <div className="font-sans text-white/60 font-light text-sm">
+                <div className="space-y-2">
+                  <p className="font-sans text-white/80 font-light text-sm leading-relaxed">
+                    Av. Principal #123
+                  </p>
+                  <p className="font-sans text-white/60 font-light text-sm leading-relaxed">
+                    Lomas de Chapultepec, CDMX
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 items-start group">
+                <div className="mt-1 p-2 bg-white/5 rounded-full group-hover:bg-[#D4AF37]/20 transition-colors">
+                  <div className="w-4 h-4 flex items-center justify-center">
+                    <div className="w-1.5 h-1.5 bg-[#D4AF37] rounded-full"></div>
+                  </div>
+                </div>
+                <div className="font-sans text-white/60 font-light text-sm leading-relaxed space-y-1">
                   <p>Lun - Vie: 09:00 - 20:00</p>
                   <p>Sábados: 10:00 - 18:00</p>
                 </div>
@@ -382,7 +408,8 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="h-64 w-full grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-1000 ease-in-out">
+          {/* Column 3: Map (col-span-5) */}
+          <div className="lg:col-span-5 relative h-[300px] w-full rounded-2xl overflow-hidden group shadow-2xl shadow-black/50 border border-white/5">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.364406026524!2d-99.1668786!3d19.3099955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDE4JzM2LjAiTiA5OcKwMTAnMDAuOCJX!5e0!3m2!1sen!2smx!4v1614000000000!5m2!1sen!2smx"
               width="100%"
@@ -391,13 +418,27 @@ const Footer = () => {
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
+              className="grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700 ease-in-out scale-100 group-hover:scale-105"
             ></iframe>
+
+            {/* Floating Card Overlay */}
+            <div className="absolute bottom-6 left-6 bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl shadow-lg transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#D4AF37] flex items-center justify-center">
+                  <MapPin size={14} className="text-black" />
+                </div>
+                <div>
+                  <p className="font-serif text-white text-lg leading-none">Spa Vivian</p>
+                  <p className="text-[10px] text-white/70 uppercase tracking-wider mt-1">Ver Ubicación</p>
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>
 
         <div className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between text-[10px] tracking-widest uppercase text-white/20 font-sans">
-          <p>© 2024 SPA VIVIAN. ALL RIGHTS RESERVED.</p>
+          <p>© 2024 Spa Vivian. Todos los derechos reservados.</p>
           <div className="flex gap-8 mt-4 md:mt-0">
             <a href="#" className="hover:text-white transition-colors">Privacy</a>
             <a href="#" className="hover:text-white transition-colors">Terms</a>
