@@ -2,11 +2,11 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Logo from './assets/logo-spa-vivian.webp'
-import { Menu, X, MapPin, Phone, Instagram, ArrowRight, Minus } from 'lucide-react'
+import { Menu, X, MapPin, Phone, Instagram, ArrowRight, Minus, MessageCircle, Facebook } from 'lucide-react'
 
 const THEME = {
   colors: {
-    bg: '#FFF5F7',
+    bg: '#FFF0F5',
     text: '#1C1917',
     accent: '#D4AF37',
     footerBg: '#000000',
@@ -87,7 +87,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={`fixed w-full z-50 transition-all duration-700 ${scrolled ? 'py-4 bg-[#1C1917]/95 backdrop-blur-xl border-b border-white/5' : 'py-6 bg-transparent'
+      <nav className={`fixed w-full z-50 transition-all duration-700 ${scrolled ? 'py-4 bg-[#11100F] backdrop-blur-xl border-b border-white/5' : 'py-6 bg-transparent'
         }`}>
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
           {/* Left: logo image - hidden at top, fades in when scrolled */}
@@ -137,7 +137,7 @@ const Navbar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-[#FFF5F7] z-40 flex items-center justify-center"
+            className="fixed inset-0 bg-[#FFF0F5] z-40 flex items-center justify-center"
           >
             <div className="flex flex-col items-center gap-8">
               {['Filosofía', 'Rituales', 'Ubicación'].map((item) => (
@@ -246,7 +246,7 @@ const ServiceItem = ({ service, index }) => {
         </span>
       </div>
 
-      <div className={`w-full md:w-1/2 bg-[#FFF5F7] flex flex-col justify-center p-12 md:p-24 lg:p-32 ${isEven ? 'md:order-2' : 'md:order-1'}`}>
+      <div className={`w-full md:w-1/2 bg-[#FFF0F5] flex flex-col justify-center p-12 md:p-24 lg:p-32 ${isEven ? 'md:order-2' : 'md:order-1'}`}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -281,7 +281,7 @@ const ServiceItem = ({ service, index }) => {
 
 const Services = () => {
   return (
-    <section id="rituales" className="bg-[#FFF5F7]">
+    <section id="rituales" className="bg-[#FFF0F5]">
       <div className="py-32 container mx-auto px-6 text-center">
         <span className="text-[#D4AF37] text-xs tracking-[0.4em] uppercase block mb-6">
           Menú de Servicios
@@ -325,7 +325,7 @@ const ParallaxQuote = () => {
           transition={{ duration: 1 }}
         >
           <QuoteIcon className="mx-auto text-white/40 mb-8 w-12 md:w-16" />
-          <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-[#FFF5F7] leading-tight italic">
+          <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-[#FFF0F5] leading-tight italic">
             "Desconecta para <br /> reconectar con tu esencia"
           </h2>
           <div className="w-24 h-[1px] bg-[#D4AF37] mx-auto mt-12" />
@@ -337,7 +337,7 @@ const ParallaxQuote = () => {
 
 const Footer = () => {
   return (
-    <footer id="ubicación" className="bg-[#000000] text-[#FFF5F7] py-24 border-t border-white/5">
+    <footer id="ubicación" className="bg-[#000000] text-[#FFF0F5] py-24 border-t border-white/5">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-24">
           <div className="space-y-8">
@@ -345,12 +345,18 @@ const Footer = () => {
             <p className="font-sans text-white/40 font-light text-sm leading-relaxed max-w-xs">
               Un santuario urbano dedicado a la preservación de la juventud y el cultivo de la paz interior.
             </p>
-            <div className="flex gap-4">
-              <a href={SOCIAL.instagram} target="_blank" rel="noreferrer" className="text-white/40 hover:text-[#D4AF37] transition-colors duration-500">
-                <Instagram size={20} />
+            <div className="flex flex-col gap-4 mt-6">
+              <a href={SOCIAL.whatsapp} target="_blank" rel="noreferrer" className="flex items-center gap-3 group transition-all duration-300">
+                <MessageCircle size={24} className="text-[#D4AF37] group-hover:scale-110 transition-transform" />
+                <span className="font-sans text-sm text-gray-400 group-hover:text-[#D4AF37] tracking-wide">Envíanos un WhatsApp</span>
               </a>
-              <a href={SOCIAL.whatsapp} target="_blank" rel="noreferrer" className="text-white/40 hover:text-[#D4AF37] transition-colors duration-500">
-                <Phone size={20} />
+              <a href="https://www.facebook.com/adyperezc/photos" target="_blank" rel="noreferrer" className="flex items-center gap-3 group transition-all duration-300">
+                <Facebook size={24} className="text-[#D4AF37] group-hover:scale-110 transition-transform" />
+                <span className="font-sans text-sm text-gray-400 group-hover:text-[#D4AF37] tracking-wide">Síguenos en Facebook</span>
+              </a>
+              <a href={SOCIAL.instagram} target="_blank" rel="noreferrer" className="flex items-center gap-3 group transition-all duration-300">
+                <Instagram size={24} className="text-[#D4AF37] group-hover:scale-110 transition-transform" />
+                <span className="font-sans text-sm text-gray-400 group-hover:text-[#D4AF37] tracking-wide">@spa_vivian</span>
               </a>
             </div>
           </div>
@@ -404,7 +410,7 @@ const Footer = () => {
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-[#FFF5F7] selection:bg-[#1C1917] selection:text-[#D4AF37]">
+    <div className="min-h-screen bg-[#FFF0F5] selection:bg-[#1C1917] selection:text-[#D4AF37]">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Montserrat:wght@200;300;400;500&display=swap');
         html { scroll-behavior: smooth; }
