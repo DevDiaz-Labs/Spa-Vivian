@@ -6,7 +6,10 @@ import Masaje from './assets/masaje.webp';
 import Descontractura from './assets/descontracturante.webp';
 import Reductor from './assets/reductor.webp';
 import Facial from './assets/facial.webp';
-import { Menu, X, MapPin, Phone, Instagram, ArrowRight, Minus, MessageCircle, Facebook } from 'lucide-react'
+import Camillas from './assets/galeria-camillas.webp';
+import Cabina from './assets/galeria-cabina.webp';
+import Detalle from './assets/galeria-detalle.webp';
+import { Menu, X, MapPin, Phone, Instagram, ArrowRight, Minus, MessageCircle, Facebook, Sparkles, Zap, Flower, ShieldCheck, Bed } from 'lucide-react'
 
 const THEME = {
   colors: {
@@ -281,36 +284,114 @@ const Services = () => {
   );
 };
 
-const QuoteIcon = ({ className }) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
-    <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z" />
-  </svg>
-);
-
-const ParallaxQuote = () => {
+const InstallationsFeature = () => {
   return (
-    <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1621262693892-0b31ac7c4613?auto=format&fit=crop&q=80&w=2000"
-          className="w-full h-full object-cover opacity-80"
-          alt="Zen Background"
-        />
-        <div className="absolute inset-0 bg-[#1C1917]/30"></div>
+    <section className="relative overflow-hidden bg-[#1C1917] py-24 md:py-32">
+      {/* Background with blur (optional luxury touch) */}
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37] rounded-full blur-[120px] mix-blend-screen" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#FFF0F5] rounded-full blur-[100px] mix-blend-overlay" />
       </div>
 
-      <div className="relative z-10 max-w-4xl px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <QuoteIcon className="mx-auto text-white/40 mb-8 w-12 md:w-16" />
-          <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-[#FFF0F5] leading-tight italic">
-            "Desconecta para <br /> reconectar con tu esencia"
-          </h2>
-          <div className="w-24 h-[1px] bg-[#D4AF37] mx-auto mt-12" />
-        </motion.div>
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+          {/* Column 1: Asymmetrical Collage */}
+          <div className="relative w-full aspect-square md:aspect-[4/3] lg:aspect-square flex items-center justify-center">
+            {/* Main Image */}
+            <div className="relative z-20 w-3/4 aspect-[4/5] shadow-2xl border-4 border-white/90 -rotate-2 transform transition-transform duration-700 hover:rotate-0 hover:scale-105">
+              <img
+                src={Camillas}
+                alt="Cabina de Masajes"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Floating Image 1 (Top Right) */}
+            <div className="absolute top-0 right-0 z-10 w-5/12 aspect-square shadow-xl border-4 border-white/90 rotate-3 transform translate-y-8 translate-x-4">
+              <img
+                src={Detalle}
+                alt="Detalles"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Floating Image 2 (Bottom Left) */}
+            <div className="absolute bottom-8 left-0 z-30 w-5/12 aspect-video shadow-xl border-4 border-white/90 rotate-1 transform -translate-x-4">
+              <img
+                src={Cabina}
+                alt="Ambiente Relax"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Column 2: Content */}
+          <div className="text-left space-y-8">
+            <div>
+              <span className="text-[#D4AF37] text-xs tracking-[0.3em] font-sans font-bold uppercase mb-4 block">
+                Conoce nuestras instalaciones
+              </span>
+              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white leading-tight">
+                Sumérgete en un espacio diseñado para tu bienestar
+              </h2>
+            </div>
+
+            <p className="font-sans text-gray-300 leading-relaxed font-light text-sm md:text-base">
+              En Spa Vivian encontrarás ambientes modernos, confortables y equipados con tecnología de última generación. Cada rincón ha sido pensado para aislarte del ruido exterior y envolverte en una atmósfera de paz absoluta.
+            </p>
+
+            {/* Amenities Grid */}
+            <div className="grid grid-cols-2 gap-y-8 gap-x-4 pt-4 border-t border-white/10">
+              <div className="flex gap-4 items-start">
+                <div className="p-2 bg-white/10 rounded-full text-[#D4AF37]">
+                  <Bed size={20} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h4 className="text-white font-serif text-lg">Cabinas Privadas</h4>
+                  <p className="text-xs text-gray-400 font-sans mt-1">Confort acústico y térmico</p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 items-start">
+                <div className="p-2 bg-white/10 rounded-full text-[#D4AF37]">
+                  <Zap size={20} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h4 className="text-white font-serif text-lg">Aparatología</h4>
+                  <p className="text-xs text-gray-400 font-sans mt-1">Tecnología de vanguardia</p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 items-start">
+                <div className="p-2 bg-white/10 rounded-full text-[#D4AF37]">
+                  <Flower size={20} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h4 className="text-white font-serif text-lg">Aromaterapia</h4>
+                  <p className="text-xs text-gray-400 font-sans mt-1">Esencias orgánicas</p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 items-start">
+                <div className="p-2 bg-white/10 rounded-full text-[#D4AF37]">
+                  <ShieldCheck size={20} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h4 className="text-white font-serif text-lg">Certificación</h4>
+                  <p className="text-xs text-gray-400 font-sans mt-1">Higiene y seguridad</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-6">
+              <Button variant="outline" onClick={() => window.open(SOCIAL.whatsapp, '_blank')}>
+                Reservar Visita
+              </Button>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );
@@ -447,7 +528,7 @@ const App = () => {
       <main>
         <Hero />
         <Services />
-        <ParallaxQuote />
+        <InstallationsFeature />
       </main>
       <Footer />
       <motion.a
