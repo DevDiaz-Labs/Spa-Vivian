@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import Logo from './assets/logo-spa-vivian.webp'
 import Masaje from './assets/masaje.webp';
 import Descontractura from './assets/descontracturante.webp';
@@ -13,13 +13,14 @@ import { Menu, X, MapPin, Phone, Instagram, ArrowRight, Minus, MessageCircle, Fa
 
 const THEME = {
   colors: {
-    bg: '#FFF0F5',
-    text: '#1C1917',
-    accent: '#D4AF37',
-    footerBg: '#000000',
+    bg: '#fff0f5', // Soft Blush
+    richBlack: '#0a0a0a', // Deep Rich Black
+    gold: '#D4AF37',
+    goldGradient: 'linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c)', // Metallic Gold
+    footerBg: '#0a0a0a',
   },
   fonts: {
-    serif: '"Cormorant Garamond", serif',
+    serif: '"Playfair Display", serif', // Luxury Serif
     sans: '"Montserrat", sans-serif',
   }
 };
@@ -57,15 +58,15 @@ const SOCIAL = {
 };
 
 const Divider = () => (
-  <div className="w-full h-[1px] bg-[#1C1917]/10 my-8" />
+  <div className="w-full h-[1px] bg-[#121212]/10 my-8" />
 );
 
 const Button = ({ children, variant = 'outline', className = '', onClick }) => {
   const base = "px-10 py-4 uppercase tracking-[0.2em] text-xs font-sans font-medium transition-all duration-700 relative overflow-hidden group";
   const styles = {
-    outline: "border border-[#D4AF37] text-[#1C1917] hover:text-white",
+    outline: "border border-[#D4AF37] text-[#121212] hover:text-white",
     solid: "bg-[#D4AF37] text-white border border-[#D4AF37]",
-    ghost: "text-[#1C1917] border-b border-[#1C1917]/20 hover:border-[#D4AF37] px-0 py-2 hover:pl-4"
+    ghost: "text-[#121212] border-b border-[#121212]/20 hover:border-[#D4AF37] px-0 py-2 hover:pl-4"
   };
 
   return (
@@ -83,74 +84,89 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 0);
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navLinks = [
+    { name: 'Filosofía', href: '#filosofía' },
+    { name: 'Rituales', href: '#rituales' },
+    { name: 'Ubicación', href: '#ubicación' },
+  ];
+
   return (
     <>
-      <nav className={`fixed w-full z-50 transition-all duration-700 ${scrolled ? 'py-4 bg-[#11100F] backdrop-blur-xl border-b border-white/5' : 'py-6 bg-transparent'
-        }`}>
+      <nav
+        className={`fixed w-full z-50 transition-all duration-500 ease-in-out ${scrolled
+          ? 'py-4 bg-rich-black/80 backdrop-blur-md border-b border-[#D4AF37]/20 shadow-lg'
+          : 'py-8 bg-transparent'
+          }`}
+      >
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-          {/* Left: logo image - hidden at top, fades in when scrolled */}
+          {/* Logo Section */}
           <div className="flex items-center">
             <motion.img
               src={Logo}
               alt="SPA VIVIAN"
-              initial={{ opacity: 0, y: -6 }}
-              animate={{ opacity: scrolled ? 1 : 0, y: scrolled ? 0 : -6 }}
-              transition={{ duration: 0.45 }}
-              className="h-10 w-auto object-contain transition-opacity duration-300"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: scrolled ? 1 : 0, y: scrolled ? 0 : -10 }}
+              className="h-10 w-auto object-contain"
             />
           </div>
 
+          {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-12">
-            {['Filosofía', 'Rituales', 'Ubicación'].map((item) => (
+            {navLinks.map((item) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className={`text-xs uppercase tracking-[0.2em] font-sans hover:text-[#D4AF37] transition-colors duration-500 ${scrolled ? 'text-white' : 'text-white/90'
-                  }`}
+                key={item.name}
+                href={item.href}
+                className="group relative text-xs uppercase tracking-[0.2em] font-sans font-medium text-white/90 hover:text-[#D4AF37] transition-colors duration-300"
               >
-                {item}
+                {item.name}
+                <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-gold-gradient transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
+
             <button
               onClick={() => window.open(SOCIAL.whatsapp, '_blank')}
-              className={`px-6 py-2 border text-xs uppercase tracking-[0.2em] transition-all duration-500 hover:bg-[#D4AF37] hover:border-[#D4AF37] hover:text-white ${scrolled ? 'border-[#D4AF37] text-[#D4AF37]' : 'border-white text-white'
+              className={`px-8 py-2.5 border text-xs uppercase tracking-[0.2em] transition-all duration-500 hover:scale-105 ${scrolled
+                ? 'border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#121212]'
+                : 'border-white/80 text-white hover:bg-white hover:text-[#121212]'
                 }`}
             >
               Reservar
             </button>
           </div>
 
+          {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden z-50 text-[#D4AF37]"
+            className="md:hidden z-50 text-[#D4AF37] hover:rotate-90 transition-transform duration-300"
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            {menuOpen ? <X size={24} /> : <Menu size={24} color={'white'} />}
+            {menuOpen ? <X size={28} /> : <Menu size={28} color="white" />}
           </button>
         </div>
       </nav>
 
+      {/* Mobile Overlay */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-[#FFF0F5] z-40 flex items-center justify-center"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed inset-0 bg-[#121212]/95 backdrop-blur-xl z-40 flex items-center justify-center"
           >
-            <div className="flex flex-col items-center gap-8">
-              {['Filosofía', 'Rituales', 'Ubicación'].map((item) => (
+            <div className="flex flex-col items-center gap-10">
+              {navLinks.map((item) => (
                 <a
-                  key={item}
-                  href="#"
+                  key={item.name}
+                  href={item.href}
                   onClick={() => setMenuOpen(false)}
-                  className="font-serif text-4xl text-[#1C1917]"
+                  className="font-serif text-4xl text-white/90 hover:text-[#D4AF37] transition-colors duration-300 italic"
                 >
-                  {item}
+                  {item.name}
                 </a>
               ))}
             </div>
@@ -162,62 +178,75 @@ const Navbar = () => {
 };
 
 const Hero = () => {
+  const { scrollY } = useScroll();
+  const yBackend = useTransform(scrollY, [0, 800], [0, 300]); // Parallax effect
+  const opacity = useTransform(scrollY, [0, 600], [1, 0]);
+
   return (
-    <section className="relative h-screen w-full overflow-hidden">
-      <motion.div
-        initial={{ scale: 1.1 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 10, ease: "easeOut" }}
-        className="absolute inset-0 z-0"
-      >
-        <div className="absolute inset-0 bg-black/60 z-10" />
+    <section className="relative h-screen w-full overflow-hidden bg-rich-black">
+      {/* Background Parallax */}
+      <motion.div style={{ y: yBackend, opacity }} className="absolute inset-0 z-0">
+        {/* Dark Gradient Overlay for Readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-rich-black via-rich-black/50 to-black/30 z-10" />
         <img
           src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&q=80&w=2000"
-          alt="Spa Atmosphere"
+          alt="Luxury Spa Atmosphere"
           className="w-full h-full object-cover"
         />
       </motion.div>
 
+      {/* Content */}
       <div className="relative z-20 h-full flex flex-col justify-center items-center text-center px-6">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="space-y-8"
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }} // Ease-out-quintish
+          className="flex flex-col items-center gap-8 max-w-4xl"
         >
-          <p className="text-[#D4AF37] font-sans text-xs md:text-sm tracking-[0.4em] uppercase">
-            Bienvenida al Santuario
-          </p>
+
+
+          {/* Logo / Main Title */}
           <motion.img
             src={Logo}
             alt="SPA VIVIAN"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, ease: 'easeOut' }}
-            className="mx-auto w-64 md:w-80 lg:w-96 z-30 object-contain drop-shadow-2xl"
+            initial={{ opacity: 0, scale: 0.95, filter: 'blur(10px)' }}
+            animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+            transition={{ duration: 1.2, delay: 0.2 }}
+            className="w-72 md:w-96 lg:w-[30rem] object-contain drop-shadow-2xl"
           />
 
-          <p className="font-serif text-xl md:text-3xl text-white/80 italic font-light tracking-wide mt-6">
-            "El sutil arte de la relajación absoluta"
-          </p>
+          {/* Slogan */}
+          <h1 className="font-serif text-2xl md:text-4xl lg:text-5xl text-white/90 italic font-light tracking-wide leading-relaxed">
+            "El sutil arte de la <span className="text-gold-luxury font-medium">relajación absoluta</span>"
+          </h1>
 
-          <div className="pt-12 flex justify-center">
+          {/* CTA Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+            className="pt-10"
+          >
             <button
               onClick={() => document.getElementById('rituales').scrollIntoView({ behavior: 'smooth' })}
-              className="flex items-center justify-center px-10 py-4 border border-[#D4AF37]/50 backdrop-blur-md bg-white/5 text-white tracking-[0.3em] font-sans text-xs uppercase hover:bg-[#D4AF37] hover:text-black hover:border-[#D4AF37] transition-all duration-700"
+              className="group relative px-10 py-4 overflow-hidden border border-[#D4AF37]/40 text-white font-sans text-xs uppercase tracking-[0.3em] transition-all duration-500 hover:border-[#D4AF37]"
             >
-              Explorar Rituales
+              <span className="relative z-10 transition-colors duration-500 group-hover:text-[#121212] font-semibold">
+                Explorar Rituales
+              </span>
+              <div className="absolute inset-0 bg-gold-gradient transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out z-0" />
             </button>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
 
+      {/* Scroll Indicator */}
       <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20"
+        animate={{ y: [0, 12, 0], opacity: [0.5, 1, 0.5] }}
+        transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20"
       >
-        <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-white/50 to-transparent" />
+        <div className="w-[1px] h-20 bg-gradient-to-b from-transparent via-[#D4AF37] to-transparent" />
       </motion.div>
     </section>
   );
@@ -244,9 +273,9 @@ const ServiceItem = ({ service, index }) => {
       </div>
 
       {/* Text Section */}
-      <div className={`w-full md:w-1/2 bg-[#FFF0F5] flex flex-col justify-center p-12 md:p-24 lg:p-32 ${isEven ? 'md:order-1' : 'md:order-2'}`}>
-        <span className="text-[#D4AF37] text-sm tracking-[0.3em] font-sans mb-6">0{index + 1}</span>
-        <h3 className="font-serif text-4xl md:text-5xl text-[#1C1917] mb-8 leading-tight">
+      <div className={`w-full md:w-1/2 bg-soft-blush bg-noise flex flex-col justify-center p-12 md:p-24 lg:p-32 ${isEven ? 'md:order-1' : 'md:order-2'}`}>
+        <span className="text-gold-luxury text-sm tracking-[0.3em] font-sans mb-6 font-bold">0{index + 1}</span>
+        <h3 className="font-serif text-4xl md:text-5xl text-rich-black mb-8 leading-tight">
           {service.title}
         </h3>
         <p className="font-sans text-gray-600 leading-relaxed mb-12 max-w-md">
@@ -265,12 +294,12 @@ const ServiceItem = ({ service, index }) => {
 
 const Services = () => {
   return (
-    <section id="rituales" className="bg-[#FFF0F5]">
+    <section id="rituales" className="bg-soft-blush bg-noise">
       <div className="py-32 container mx-auto px-6 text-center">
-        <span className="text-[#D4AF37] text-xs tracking-[0.4em] uppercase block mb-6">
+        <span className="text-gold-luxury text-xs tracking-[0.4em] uppercase block mb-6 font-bold">
           Menú de Servicios
         </span>
-        <h2 className="font-serif text-5xl md:text-6xl text-[#1C1917]">
+        <h2 className="font-serif text-5xl md:text-6xl text-rich-black">
           Nuestra Colección
         </h2>
       </div>
@@ -286,11 +315,11 @@ const Services = () => {
 
 const InstallationsFeature = () => {
   return (
-    <section className="relative overflow-hidden bg-[#1C1917] py-24 md:py-32">
+    <section className="relative overflow-hidden bg-rich-black py-24 md:py-32">
       {/* Background with blur (optional luxury touch) */}
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37] rounded-full blur-[120px] mix-blend-screen" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#FFF0F5] rounded-full blur-[100px] mix-blend-overlay" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-soft-blush rounded-full blur-[100px] mix-blend-overlay" />
       </div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -399,7 +428,7 @@ const InstallationsFeature = () => {
 
 const Footer = () => {
   return (
-    <footer id="ubicación" className="bg-gradient-to-b from-[#11100F] to-black text-[#FFF0F5] py-24 border-t border-[#D4AF37]/30">
+    <footer id="ubicación" className="bg-rich-black text-soft-blush py-24 border-t border-[#D4AF37]/30">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12">
 
@@ -518,9 +547,9 @@ const Footer = () => {
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-[#FFF0F5] selection:bg-[#1C1917] selection:text-[#D4AF37]">
+    <div className="min-h-screen bg-soft-blush selection:bg-rich-black selection:text-[#D4AF37]">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Montserrat:wght@200;300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@200;300;400;500&display=swap');
         html { scroll-behavior: smooth; }
       `}</style>
 
