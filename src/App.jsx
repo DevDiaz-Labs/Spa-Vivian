@@ -216,7 +216,7 @@ const Hero = () => {
           />
 
           {/* Slogan */}
-          <h1 className="font-serif text-2xl md:text-4xl lg:text-5xl text-white/90 italic font-light tracking-wide leading-relaxed">
+          <h1 className="font-serif text-2xl md:text-4xl lg:text-5xl text-white/90 italic font-light tracking-normal leading-relaxed">
             "El sutil arte de la <span className="text-gold-luxury font-medium">relajación absoluta</span>"
           </h1>
 
@@ -278,7 +278,7 @@ const ServiceItem = ({ service, index }) => {
         <h3 className="font-serif text-4xl md:text-5xl text-rich-black mb-8 leading-tight">
           {service.title}
         </h3>
-        <p className="font-sans text-gray-600 leading-relaxed mb-12 max-w-md">
+        <p className="font-sans text-gray-600 leading-loose mb-12 max-w-md">
           {service.description}
         </p>
         <button
@@ -366,7 +366,7 @@ const InstallationsFeature = () => {
               </h2>
             </div>
 
-            <p className="font-sans text-gray-300 leading-relaxed font-light text-sm md:text-base">
+            <p className="font-sans text-gray-300 leading-loose font-light text-sm md:text-base">
               En Spa Vivian encontrarás ambientes modernos, confortables y equipados con tecnología de última generación. Cada rincón ha sido pensado para aislarte del ruido exterior y envolverte en una atmósfera de paz absoluta.
             </p>
 
@@ -485,10 +485,10 @@ const Footer = () => {
                   <MapPin className="text-[#D4AF37]" size={18} />
                 </div>
                 <div className="space-y-2">
-                  <p className="font-sans text-white/80 font-light text-sm leading-relaxed">
+                  <p className="font-sans text-white/80 font-light text-sm leading-loose">
                     Olcuautitlan, Cantera Puente de Piedra, Iztapalapa
                   </p>
-                  <p className="font-sans text-white/60 font-light text-sm leading-relaxed">
+                  <p className="font-sans text-white/60 font-light text-sm leading-loose">
                     CDMX 14040
                   </p>
                 </div>
@@ -500,7 +500,7 @@ const Footer = () => {
                     <div className="w-1.5 h-1.5 bg-[#D4AF37] rounded-full"></div>
                   </div>
                 </div>
-                <div className="font-sans text-white/60 font-light text-sm leading-relaxed space-y-1">
+                <div className="font-sans text-white/60 font-light text-sm leading-loose space-y-1">
                   <p>Lun - Vie: 09:00 - 20:00</p>
                   <p>Sábados: 10:00 - 18:00</p>
                 </div>
