@@ -191,14 +191,14 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, ease: 'easeOut' }}
-            className="mx-auto w-48 md:w-72 z-30 object-contain drop-shadow-lg"
+            className="mx-auto w-64 md:w-[28rem] z-30 object-contain drop-shadow-lg"
           />
 
           <p className="font-serif text-xl md:text-3xl text-white/80 italic font-light tracking-wide mt-6">
             "El sutil arte de la relajación absoluta"
           </p>
 
-          <div className="pt-12">
+          <div className="pt-12 flex justify-center">
             <button
               onClick={() => document.getElementById('rituales').scrollIntoView({ behavior: 'smooth' })}
               className="group relative flex items-center justify-center px-12 py-4 border-[1.5px] border-white/30 text-white overflow-hidden transition-all duration-700 hover:border-[#D4AF37]"
@@ -343,34 +343,43 @@ const Footer = () => {
 
           {/* Column 1: Info & Social (col-span-4) */}
           <div className="lg:col-span-4 space-y-8">
-            <h3 className="font-serif text-3xl tracking-widest text-[#D4AF37]">SPA VIVIAN</h3>
-            <p className="font-sans text-white/60 font-light text-sm leading-relaxed max-w-sm">
-              Un santuario urbano dedicado a la preservación de la juventud y el cultivo de la paz interior.
-            </p>
+            <h3 className="font-serif text-3xl tracking-widest text-[#D4AF37] mb-4">SPA VIVIAN</h3>
 
-            <div className="flex flex-col gap-6 mt-8">
+            <div className="flex flex-col gap-5 mt-4">
               {/* WhatsApp */}
-              <a href={SOCIAL.whatsapp} target="_blank" rel="noreferrer" className="flex items-center gap-4 group transition-all duration-300">
-                <div className="w-10 h-10 rounded-full bg-[#D4AF37]/10 flex items-center justify-center group-hover:bg-[#D4AF37] transition-colors duration-300">
-                  <MessageCircle size={20} className="text-[#D4AF37] group-hover:text-black transition-colors" />
+              <a href={SOCIAL.whatsapp} target="_blank" rel="noreferrer" className="flex items-center gap-4 group w-fit transition-all duration-300 hover:translate-x-2">
+                <div className="p-2 border border-[#D4AF37]/30 rounded-full text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-[#11100F] transition-all duration-300">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
                 </div>
-                <span className="font-sans text-sm text-gray-400 group-hover:text-[#D4AF37] tracking-wide transition-colors">Envíanos un WhatsApp</span>
+                <span className="text-gray-400 font-sans text-sm tracking-widest group-hover:text-[#D4AF37] transition-colors duration-300">WhatsApp</span>
               </a>
 
               {/* Facebook */}
-              <a href="https://www.facebook.com/adyperezc/photos" target="_blank" rel="noreferrer" className="flex items-center gap-4 group transition-all duration-300">
-                <div className="w-10 h-10 rounded-full bg-[#D4AF37]/10 flex items-center justify-center group-hover:bg-[#D4AF37] transition-colors duration-300">
-                  <Facebook size={20} className="text-[#D4AF37] group-hover:text-black transition-colors" />
+              <a href="https://www.facebook.com/adyperezc/photos" target="_blank" rel="noreferrer" className="flex items-center gap-4 group w-fit transition-all duration-300 hover:translate-x-2">
+                <div className="p-2 border border-[#D4AF37]/30 rounded-full text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-[#11100F] transition-all duration-300">
+                  <Facebook size={20} />
                 </div>
-                <span className="font-sans text-sm text-gray-400 group-hover:text-[#D4AF37] tracking-wide transition-colors">Síguenos en Facebook</span>
+                <span className="text-gray-400 font-sans text-sm tracking-widest group-hover:text-[#D4AF37] transition-colors duration-300">Facebook</span>
               </a>
 
               {/* Instagram */}
-              <a href={SOCIAL.instagram} target="_blank" rel="noreferrer" className="flex items-center gap-4 group transition-all duration-300">
-                <div className="w-10 h-10 rounded-full bg-[#D4AF37]/10 flex items-center justify-center group-hover:bg-[#D4AF37] transition-colors duration-300">
-                  <Instagram size={20} className="text-[#D4AF37] group-hover:text-black transition-colors" />
+              <a href={SOCIAL.instagram} target="_blank" rel="noreferrer" className="flex items-center gap-4 group w-fit transition-all duration-300 hover:translate-x-2">
+                <div className="p-2 border border-[#D4AF37]/30 rounded-full text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-[#11100F] transition-all duration-300">
+                  <Instagram size={20} />
                 </div>
-                <span className="font-sans text-sm text-gray-400 group-hover:text-[#D4AF37] tracking-wide transition-colors">@spa_vivian</span>
+                <span className="text-gray-400 font-sans text-sm tracking-widest group-hover:text-[#D4AF37] transition-colors duration-300">Instagram</span>
+              </a>
+
+              {/* TikTok */}
+              <a href="https://www.tiktok.com/@spa.vivian0?_r=1&_t=ZS-93bR7GiYU2T" target="_blank" rel="noreferrer" className="flex items-center gap-4 group w-fit transition-all duration-300 hover:translate-x-2">
+                <div className="p-2 border border-[#D4AF37]/30 rounded-full text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-[#11100F] transition-all duration-300">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                  </svg>
+                </div>
+                <span className="text-gray-400 font-sans text-sm tracking-widest group-hover:text-[#D4AF37] transition-colors duration-300">TikTok</span>
               </a>
             </div>
           </div>
@@ -386,10 +395,10 @@ const Footer = () => {
                 </div>
                 <div className="space-y-2">
                   <p className="font-sans text-white/80 font-light text-sm leading-relaxed">
-                    Av. Principal #123
+                    Olcuatitlan, Cantera Puente de Piedra
                   </p>
                   <p className="font-sans text-white/60 font-light text-sm leading-relaxed">
-                    Lomas de Chapultepec, CDMX
+                    CDMX 14040
                   </p>
                 </div>
               </div>
@@ -409,7 +418,7 @@ const Footer = () => {
           </div>
 
           {/* Column 3: Map (col-span-5) */}
-          <div className="lg:col-span-5 relative h-[300px] w-full rounded-2xl overflow-hidden group shadow-2xl shadow-black/50 border border-white/5">
+          <div className="lg:col-span-5 relative h-[300px] w-full rounded-2xl overflow-hidden group shadow-2xl shadow-black/50 border border-[#D4AF37]/20">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.364406026524!2d-99.1668786!3d19.3099955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDE4JzM2LjAiTiA5OcKwMTAnMDAuOCJX!5e0!3m2!1sen!2smx!4v1614000000000!5m2!1sen!2smx"
               width="100%"
@@ -437,12 +446,8 @@ const Footer = () => {
 
         </div>
 
-        <div className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between text-[10px] tracking-widest uppercase text-white/20 font-sans">
-          <p>© 2024 Spa Vivian. Todos los derechos reservados.</p>
-          <div className="flex gap-8 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms</a>
-          </div>
+        <div className="mt-24 pt-8 border-t border-white/5 flex justify-center text-[10px] tracking-widest uppercase text-white/20 font-sans">
+          <p>© 2026 Spa Vivian. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>
