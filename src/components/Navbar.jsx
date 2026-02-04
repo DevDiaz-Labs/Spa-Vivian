@@ -27,9 +27,10 @@ const Navbar = () => {
     }, []);
 
     const navLinks = [
-        { name: 'Filosofía', href: '/#filosofía', isHash: true },
-        { name: 'Rituales', href: '/rituales', isHash: false },
-        { name: 'Ubicación', href: '/#ubicación', isHash: true },
+        { name: 'Inicio', href: '/#hero', isHash: true },
+        { name: 'Rituales', href: '/#rituales', isHash: true },
+        { name: 'El Espacio', href: '/#espacio', isHash: true },
+        { name: 'Ubicación', href: '/#ubicacion', isHash: true },
     ];
 
     const handleLinkClick = (href, isHash) => {
@@ -50,19 +51,20 @@ const Navbar = () => {
             <nav
                 style={{ willChange: 'transform' }}
                 className={`fixed w-full z-50 transition-all duration-500 ease-in-out ${scrolled
-                    ? 'py-4 bg-rich-black/80 backdrop-blur-md border-b border-[#D4AF37]/20 shadow-lg'
+                    ? 'py-4 bg-[#11100F]/90 backdrop-blur-md border-b border-[#D4AF37]/20 shadow-lg'
                     : 'py-8 bg-transparent'
                     }`}
             >
                 <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-                    {/* Logo Section */}
+                    {/* Logo Section - Hidden initially, visible on scroll */}
                     <div className="flex items-center">
-                        <Link to="/">
+                        <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                             <motion.img
                                 src={Logo}
                                 alt="SPA VIVIAN"
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: scrolled ? 1 : 0, y: scrolled ? 0 : -10 }}
+                                transition={{ duration: 0.3 }}
                                 className="h-10 w-auto object-contain cursor-pointer"
                             />
                         </Link>
@@ -76,7 +78,8 @@ const Navbar = () => {
                                     <a
                                         key={item.name}
                                         href={item.href.replace('/', '')} // Remove leading slash for local anchor
-                                        className="group relative text-xs uppercase tracking-[0.2em] font-sans font-medium text-white/90 hover:text-[#D4AF37] transition-colors duration-300"
+                                        className={`group relative text-xs uppercase tracking-[0.2em] font-sans font-medium transition-colors duration-300 ${scrolled || !isHome ? 'text-[#D4AF37]' : 'text-white/90 hover:text-[#D4AF37]'
+                                            }`}
                                     >
                                         {item.name}
                                         <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-gold-gradient transition-all duration-300 group-hover:w-full" />
@@ -85,7 +88,8 @@ const Navbar = () => {
                                     <Link
                                         key={item.name}
                                         to={item.href}
-                                        className="group relative text-xs uppercase tracking-[0.2em] font-sans font-medium text-white/90 hover:text-[#D4AF37] transition-colors duration-300"
+                                        className={`group relative text-xs uppercase tracking-[0.2em] font-sans font-medium transition-colors duration-300 ${scrolled || !isHome ? 'text-[#D4AF37]' : 'text-white/90 hover:text-[#D4AF37]'
+                                            }`}
                                     >
                                         {item.name}
                                         <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-gold-gradient transition-all duration-300 group-hover:w-full" />
@@ -95,7 +99,8 @@ const Navbar = () => {
                                 <Link
                                     key={item.name}
                                     to={item.href}
-                                    className="group relative text-xs uppercase tracking-[0.2em] font-sans font-medium text-white/90 hover:text-[#D4AF37] transition-colors duration-300"
+                                    className={`group relative text-xs uppercase tracking-[0.2em] font-sans font-medium transition-colors duration-300 ${scrolled || !isHome ? 'text-[#D4AF37]' : 'text-white/90 hover:text-[#D4AF37]'
+                                        }`}
                                 >
                                     {item.name}
                                     <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-gold-gradient transition-all duration-300 group-hover:w-full" />
@@ -103,11 +108,14 @@ const Navbar = () => {
                             )
                         ))}
 
+                        {/* Reserve Button */}
                         <button
                             onClick={() => window.open(SOCIAL.whatsapp, '_blank')}
-                            className={`px-8 py-2.5 border text-xs uppercase tracking-[0.2em] transition-all duration-500 hover:scale-105 ${scrolled
-                                ? 'border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#121212]'
-                                : 'border-white/80 text-white hover:bg-white hover:text-[#121212]'
+                            className={`px-6 py-2 border border-[#D4AF37] text-xs uppercase tracking-[0.2em] font-sans transition-all duration-500 ${scrolled
+                                ? 'bg-[#D4AF37] text-rich-black hover:bg-transparent hover:text-[#D4AF37]'
+                                : !isHome
+                                    ? 'text-[#D4AF37] border-[#D4AF37] hover:bg-[#D4AF37] hover:text-rich-black'
+                                    : 'text-white hover:bg-[#D4AF37] hover:text-rich-black'
                                 }`}
                         >
                             Reservar
@@ -116,10 +124,10 @@ const Navbar = () => {
 
                     {/* Mobile Menu Toggle */}
                     <button
-                        className="md:hidden z-50 text-[#D4AF37] hover:rotate-90 transition-transform duration-300"
+                        className="md:hidden z-50 transition-transform duration-300 text-[#D4AF37]"
                         onClick={() => setMenuOpen(!menuOpen)}
                     >
-                        {menuOpen ? <X size={28} /> : <Menu size={28} color="white" />}
+                        {menuOpen ? <X size={28} /> : <Menu size={28} color={scrolled || !isHome ? "#D4AF37" : "white"} />}
                     </button>
                 </div>
             </nav>
