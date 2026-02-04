@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bed, Zap, Flower, ShieldCheck } from 'lucide-react';
+import { Heart, Home, Sparkles, ShieldCheck } from 'lucide-react';
 import { Button } from './UI';
 import { SOCIAL } from '../data/constants';
 import Camillas from '../assets/galeria-camillas.webp';
@@ -8,48 +8,47 @@ import Detalle from '../assets/galeria-detalle.webp';
 
 const Installations = () => {
     return (
-        <section id="espacio" className="relative overflow-hidden bg-rich-black py-24 md:py-32">
-            {/* Background with blur (optional luxury touch) */}
-            <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37] rounded-full blur-[120px] mix-blend-screen" />
-                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-soft-blush rounded-full blur-[100px] mix-blend-overlay" />
-            </div>
+        <section id="espacio" className="relative overflow-hidden bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#1C1917] to-black py-24 md:py-32">
+
+            {/* Golden Glow Effect */}
+            <div className="absolute top-1/2 left-0 lg:left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-[#D4AF37]/15 rounded-full blur-[100px] pointer-events-none mix-blend-screen" />
 
             <div className="container mx-auto px-6 md:px-12 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
-                    {/* Column 1: Asymmetrical Collage */}
+                    {/* Column 1: Polaroid Premium Collage */}
                     <div className="relative w-full aspect-square md:aspect-[4/3] lg:aspect-square flex items-center justify-center">
-                        {/* Main Image */}
-                        <div className="relative z-20 w-3/4 aspect-[4/5] shadow-2xl border-4 border-white/90 -rotate-2 transform transition-transform duration-700 hover:rotate-0 hover:scale-105">
-                            <img
-                                src={Camillas}
-                                alt="Cabina de Masajes"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
 
-                        {/* Floating Image 1 (Top Right) */}
-                        <div className="absolute top-0 right-0 z-10 w-5/12 aspect-square shadow-xl border-4 border-white/90 rotate-3 transform translate-y-8 translate-x-4">
+                        {/* Back Left: Detalle */}
+                        <div className="absolute left-4 lg:left-12 top-10 z-0 w-[55%] aspect-[4/5] bg-white p-2 shadow-2xl rounded-sm transform scale-90 -rotate-[8deg] opacity-90 transition-transform duration-700 hover:z-30 hover:scale-100 hover:rotate-0">
                             <img
                                 src={Detalle}
-                                alt="Detalles"
+                                alt="Detalle Spa"
                                 className="w-full h-full object-cover"
                             />
                         </div>
 
-                        {/* Floating Image 2 (Bottom Left) */}
-                        <div className="absolute bottom-8 left-0 z-30 w-5/12 aspect-video shadow-xl border-4 border-white/90 rotate-1 transform -translate-x-4">
+                        {/* Back Right: Cabina */}
+                        <div className="absolute right-4 lg:right-12 top-8 z-0 w-[55%] aspect-[4/5] bg-white p-2 shadow-2xl rounded-sm transform scale-90 rotate-[6deg] opacity-90 transition-transform duration-700 hover:z-30 hover:scale-100 hover:rotate-0">
                             <img
                                 src={Cabina}
-                                alt="Ambiente Relax"
+                                alt="Cabina Spa"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+
+                        {/* Main Center: Camillas */}
+                        <div className="relative z-20 w-[60%] aspect-[4/5] bg-white p-2 shadow-2xl rounded-sm transform -rotate-[2deg] transition-transform duration-700 hover:scale-105 hover:rotate-0">
+                            <img
+                                src={Camillas}
+                                alt="Camillas Spa"
                                 className="w-full h-full object-cover"
                             />
                         </div>
                     </div>
 
                     {/* Column 2: Content */}
-                    <div className="text-left space-y-8">
+                    <div className="text-left space-y-10">
                         <div>
                             <span className="text-[#D4AF37] text-xs tracking-[0.3em] font-sans font-bold uppercase mb-4 block">
                                 TU REFUGIO PERSONAL
@@ -63,55 +62,59 @@ const Installations = () => {
                             Hemos diseñado un espacio íntimo donde la luz suave y la calma te invitan a soltar la carga del día. Un rincón dedicado exclusivamente a tu cuidado y descanso.
                         </p>
 
-                        {/* Amenities Grid */}
-                        <div className="grid grid-cols-2 gap-y-8 gap-x-4 pt-4 border-t border-white/10">
-                            <div className="flex gap-4 items-start">
-                                <div className="p-2 bg-white/10 rounded-full text-[#D4AF37]">
-                                    <Bed size={20} strokeWidth={1.5} />
+                        {/* Benefits Icons */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-6 pt-6 border-t border-white/10">
+
+                            {/* 1. Atención Dedicada */}
+                            <div className="flex gap-4 items-start group">
+                                <div className="p-2 bg-white/5 rounded-full text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-black transition-colors duration-300">
+                                    <Heart size={20} strokeWidth={1.5} />
                                 </div>
                                 <div>
-                                    <h4 className="text-white font-serif text-lg">Cabinas Privadas</h4>
-                                    <p className="text-xs text-gray-400 font-sans mt-1">Confort acústico y térmico</p>
+                                    <h4 className="text-white font-serif text-lg">Atención Dedicada</h4>
+                                    <p className="text-xs text-gray-400 font-sans mt-1">Cuidado humano y personalizado.</p>
                                 </div>
                             </div>
 
-                            <div className="flex gap-4 items-start">
-                                <div className="p-2 bg-white/10 rounded-full text-[#D4AF37]">
-                                    <Zap size={20} strokeWidth={1.5} />
+                            {/* 2. Ambiente Íntimo */}
+                            <div className="flex gap-4 items-start group">
+                                <div className="p-2 bg-white/5 rounded-full text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-black transition-colors duration-300">
+                                    <Home size={20} strokeWidth={1.5} />
                                 </div>
                                 <div>
-                                    <h4 className="text-white font-serif text-lg">Aparatología</h4>
-                                    <p className="text-xs text-gray-400 font-sans mt-1">Tecnología de vanguardia</p>
+                                    <h4 className="text-white font-serif text-lg">Ambiente Íntimo</h4>
+                                    <p className="text-xs text-gray-400 font-sans mt-1">Diseñado para tu comodidad total.</p>
                                 </div>
                             </div>
 
-                            <div className="flex gap-4 items-start">
-                                <div className="p-2 bg-white/10 rounded-full text-[#D4AF37]">
-                                    <Flower size={20} strokeWidth={1.5} />
+                            {/* 3. Productos Selectos */}
+                            <div className="flex gap-4 items-start group">
+                                <div className="p-2 bg-white/5 rounded-full text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-black transition-colors duration-300">
+                                    <Sparkles size={20} strokeWidth={1.5} />
                                 </div>
                                 <div>
-                                    <h4 className="text-white font-serif text-lg">Aromaterapia</h4>
-                                    <p className="text-xs text-gray-400 font-sans mt-1">Esencias orgánicas</p>
+                                    <h4 className="text-white font-serif text-lg">Productos Selectos</h4>
+                                    <p className="text-xs text-gray-400 font-sans mt-1">Calidad premium en cada ritual.</p>
                                 </div>
                             </div>
 
-                            <div className="flex gap-4 items-start">
-                                <div className="p-2 bg-white/10 rounded-full text-[#D4AF37]">
+                            {/* 4. Cuidado Profesional */}
+                            <div className="flex gap-4 items-start group">
+                                <div className="p-2 bg-white/5 rounded-full text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-black transition-colors duration-300">
                                     <ShieldCheck size={20} strokeWidth={1.5} />
                                 </div>
                                 <div>
-                                    <h4 className="text-white font-serif text-lg">Certificación</h4>
-                                    <p className="text-xs text-gray-400 font-sans mt-1">Higiene y seguridad</p>
+                                    <h4 className="text-white font-serif text-lg">Cuidado Profesional</h4>
+                                    <p className="text-xs text-gray-400 font-sans mt-1">Tu seguridad y paz son lo primero.</p>
                                 </div>
                             </div>
+
                         </div>
 
                         <div className="pt-6">
-                            <div className="pt-6">
-                                <Button variant="outline" onClick={() => window.open(SOCIAL.whatsapp, '_blank')} className="text-[#D4AF37] hover:text-[#121212]">
-                                    Reservar Visita
-                                </Button>
-                            </div>
+                            <Button variant="outline" onClick={() => window.open(SOCIAL.whatsapp, '_blank')} className="text-[#D4AF37] hover:text-[#121212]">
+                                Reservar Visita
+                            </Button>
                         </div>
                     </div>
 
