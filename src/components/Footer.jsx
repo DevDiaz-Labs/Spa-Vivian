@@ -100,14 +100,17 @@ const Footer = () => {
                         ></iframe>
 
                         {/* Floating Card Overlay */}
-                        <div className="absolute bottom-6 left-6 bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl shadow-lg transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                            <div className="flex items-center gap-3">
-                                <div className="w-8 h-8 rounded-full bg-[#D4AF37] flex items-center justify-center">
-                                    <MapPin size={14} className="text-black" />
+                        <div className="absolute bottom-6 left-6 bg-[#12100E]/90 backdrop-blur-md border border-[#D4AF37]/30 p-5 rounded-none shadow-2xl transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 min-w-[200px]">
+                            <div className="flex items-center gap-4">
+                                <div className="w-10 h-10 bg-[#D4AF37] flex items-center justify-center shadow-lg">
+                                    <MapPin size={18} className="text-[#12100E]" />
                                 </div>
-                                <div>
-                                    <p className="font-serif text-white text-lg leading-none">Spa Vivian</p>
-                                    <p className="text-[10px] text-white/70 uppercase tracking-wider mt-1">Ver Ubicación</p>
+                                <div className="flex flex-col">
+                                    <p className="font-serif text-[#F5F5F0] text-xl tracking-wide leading-none mb-1">Spa Vivian</p>
+                                    <div className="flex items-center gap-2">
+                                        <span className="h-[1px] w-4 bg-[#D4AF37]"></span>
+                                        <p className="text-[10px] text-[#D4AF37] uppercase tracking-[0.2em] font-medium">Ver Ubicación</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

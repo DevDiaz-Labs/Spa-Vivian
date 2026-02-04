@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import Logo from '../assets/logo-spa-vivian.webp';
 
 const Hero = () => {
     const { scrollY } = useScroll();
@@ -12,7 +11,7 @@ const Hero = () => {
             {/* Background Parallax */}
             <motion.div style={{ y: yBackend, opacity }} className="absolute inset-0 z-0 will-change-transform">
                 {/* Dark Gradient Overlay for Readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-rich-black via-rich-black/50 to-black/30 z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/40 z-10" />
                 <img
                     src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&q=80&w=2000"
                     alt="Luxury Spa Atmosphere"
@@ -23,45 +22,50 @@ const Hero = () => {
             </motion.div>
 
             {/* Content */}
-            <div className="relative z-20 h-full flex flex-col justify-center items-center text-center px-6 pb-20">
+            <div className="relative z-20 h-full flex flex-col justify-center items-center text-center px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 60 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }} // Ease-out-quintish
-                    className="flex flex-col items-center gap-8 max-w-4xl"
+                    className="flex flex-col items-center max-w-5xl"
                 >
 
+                    {/* Typography Composition */}
+                    <div className="flex flex-col items-center mb-10">
+                        {/* Eyebrow */}
+                        <motion.span
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3, duration: 1 }}
+                            className="text-[#D4AF37] text-xs md:text-sm tracking-[0.3em] uppercase font-sans font-medium mb-4"
+                        >
+                            Bienvenida al Santuario
+                        </motion.span>
 
-                    {/* Logo / Main Title */}
-                    <motion.img
-                        src={Logo}
-                        alt="SPA VIVIAN"
-                        initial={{ opacity: 0, scale: 0.95, filter: 'blur(10px)' }}
-                        animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-                        transition={{ duration: 1.2, delay: 0.2 }}
-                        className="w-72 md:w-96 lg:w-[30rem] object-contain drop-shadow-2xl"
-                    />
-
-                    {/* Slogan */}
-                    <h1 className="font-serif text-2xl md:text-4xl lg:text-5xl text-white/90 italic font-light tracking-normal leading-relaxed">
-                        "El sutil arte de la <span className="text-gold-luxury font-medium">relajación absoluta</span>"
-                    </h1>
+                        {/* Main Title */}
+                        <motion.h1
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.5, duration: 1.2 }}
+                            className="font-serif text-4xl md:text-6xl lg:text-7xl text-stone-100 italic font-light tracking-wide leading-tight drop-shadow-lg"
+                        >
+                            El sutil arte de la <br className="hidden md:block" /> relajación absoluta
+                        </motion.h1>
+                    </div>
 
                     {/* CTA Button */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.8, duration: 0.8 }}
-                        className="pt-10"
                     >
                         <button
                             onClick={() => document.getElementById('rituales').scrollIntoView({ behavior: 'smooth' })}
-                            className="group relative px-10 py-4 overflow-hidden border border-[#D4AF37]/40 text-white font-sans text-xs uppercase tracking-[0.3em] transition-all duration-500 hover:border-[#D4AF37]"
+                            className="group relative px-12 py-4 overflow-hidden border border-white/40 text-white font-sans text-xs uppercase tracking-[0.25em] transition-all duration-500 hover:border-white hover:bg-white hover:text-rich-black"
                         >
-                            <span className="relative z-10 transition-colors duration-500 group-hover:text-[#121212] font-semibold">
+                            <span className="relative z-10 font-medium">
                                 Explorar Rituales
                             </span>
-                            <div className="absolute inset-0 bg-gold-gradient transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out z-0" />
                         </button>
                     </motion.div>
                 </motion.div>
