@@ -71,7 +71,7 @@ const Services = () => {
                     to="/rituales"
                     className="px-12 py-5 border border-gold text-gold hover:bg-gold hover:text-rich-black transition-all duration-500 font-sans tracking-[0.25em] text-xs uppercase font-medium"
                 >
-                    Explorar Menú Completo
+                    Explorar todos los servicios
                 </Link>
             </div>
         </section>
