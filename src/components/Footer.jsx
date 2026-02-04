@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Instagram, MapPin } from 'lucide-react';
+import { Facebook, Instagram, MapPin, CalendarCheck } from 'lucide-react';
 import { SOCIAL } from '../data/constants';
 
 const Footer = () => {
@@ -70,15 +70,17 @@ const Footer = () => {
                                 </div>
                             </div>
 
-                            <div className="flex gap-4 items-start group">
-                                <div className="mt-1 p-2 bg-white/5 rounded-full group-hover:bg-[#D4AF37]/20 transition-colors">
-                                    <div className="w-4 h-4 flex items-center justify-center">
-                                        <div className="w-1.5 h-1.5 bg-[#D4AF37] rounded-full"></div>
-                                    </div>
+                            <div className="flex gap-4 items-center group">
+                                <div className="p-2 bg-white/5 rounded-full group-hover:bg-[#D4AF37]/20 transition-colors">
+                                    <CalendarCheck className="text-[#D4AF37]" size={18} />
                                 </div>
-                                <div className="font-sans text-white/60 font-light text-sm leading-loose space-y-1">
-                                    <p>Lun - Vie: 09:00 - 20:00</p>
-                                    <p>Sábados: 10:00 - 18:00</p>
+                                <div>
+                                    <p className="font-sans text-white font-medium text-sm leading-relaxed">
+                                        Atención Exclusiva con Cita Previa
+                                    </p>
+                                    <p className="font-sans text-[#D4AF37] text-xs tracking-wide mt-1">
+                                        Reserva tu espacio por WhatsApp
+                                    </p>
                                 </div>
                             </div>
                         </div>
