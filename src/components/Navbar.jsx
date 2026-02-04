@@ -28,9 +28,9 @@ const Navbar = () => {
 
     const navLinks = [
         { name: 'Inicio', href: '/#hero', isHash: true },
-        { name: 'Rituales', href: '/#rituales', isHash: true },
-        { name: 'El Espacio', href: '/#espacio', isHash: true },
-        { name: 'Ubicación', href: '/#ubicacion', isHash: true },
+        { name: 'Servicios', href: '/#rituales', isHash: true },
+        { name: 'Instalaciones', href: '/#espacio', isHash: true },
+        { name: 'Contáctanos', href: '/#ubicacion', isHash: true },
     ];
 
     const handleLinkClick = (href, isHash) => {

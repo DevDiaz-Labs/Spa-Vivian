@@ -4,7 +4,7 @@ import { SOCIAL } from '../data/constants';
 
 const Footer = () => {
     return (
-        <footer id="ubicacion" className="bg-rich-black text-white pt-24 pb-12 border-t border-[#D4AF37]/30">
+        <footer id="ubicacion" className="bg-rich-black text-white pt-12 pb-8 md:pt-24 md:pb-12 border-t border-[#D4AF37]/30">
             <div className="container mx-auto px-6 md:px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12">
 
@@ -24,11 +24,11 @@ const Footer = () => {
                             </a>
 
                             {/* Facebook */}
-                            <a href="https://www.facebook.com/adyperezc/photos" target="_blank" rel="noreferrer" className="flex items-center gap-4 group w-fit transition-all duration-300 hover:translate-x-2">
+                            <a href="https://www.facebook.com/profile.php?id=100086438814777" target="_blank" rel="noreferrer" className="flex items-center gap-4 group w-fit transition-all duration-300 hover:translate-x-2">
                                 <div className="p-2 border border-[#D4AF37]/30 rounded-full text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-[#11100F] transition-all duration-300">
                                     <Facebook size={20} />
                                 </div>
-                                <span className="text-gray-400 font-sans text-sm tracking-widest group-hover:text-[#D4AF37] transition-colors duration-300">Facebook</span>
+                                <span className="text-gray-400 font-sans text-sm tracking-widest group-hover:text-[#D4AF37] transition-colors duration-300">Spa Vivian</span>
                             </a>
 
                             {/* Instagram */}
@@ -36,7 +36,7 @@ const Footer = () => {
                                 <div className="p-2 border border-[#D4AF37]/30 rounded-full text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-[#11100F] transition-all duration-300">
                                     <Instagram size={20} />
                                 </div>
-                                <span className="text-gray-400 font-sans text-sm tracking-widest group-hover:text-[#D4AF37] transition-colors duration-300">Instagram</span>
+                                <span className="text-gray-400 font-sans text-sm tracking-widest group-hover:text-[#D4AF37] transition-colors duration-300">@spa_vivian</span>
                             </a>
 
                             {/* TikTok */}
@@ -46,7 +46,7 @@ const Footer = () => {
                                         <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
                                     </svg>
                                 </div>
-                                <span className="text-gray-400 font-sans text-sm tracking-widest group-hover:text-[#D4AF37] transition-colors duration-300">TikTok</span>
+                                <span className="text-gray-400 font-sans text-sm tracking-widest group-hover:text-[#D4AF37] transition-colors duration-300">@spa.vivian0</span>
                             </a>
                         </div>
                     </div>
@@ -89,18 +89,23 @@ const Footer = () => {
                     {/* Column 3: Map (col-span-5) */}
                     <div className="lg:col-span-5 relative h-[300px] w-full rounded-2xl overflow-hidden group shadow-2xl shadow-black/50 border border-[#D4AF37]/20">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.364406026524!2d-99.1668786!3d19.3099955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDE4JzM2LjAiTiA5OcKwMTAnMDAuOCJX!5e0!3m2!1sen!2smx!4v1614000000000!5m2!1sen!2smx"
+                            src="https://maps.google.com/maps?q=19.3200509,-99.0633557&hl=es&z=16&output=embed"
                             width="100%"
                             height="100%"
                             style={{ border: 0 }}
                             allowFullScreen=""
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
-                            className="grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700 ease-in-out scale-100 group-hover:scale-105"
+                            className="transition-all duration-700 ease-in-out scale-100 group-hover:scale-105"
                         ></iframe>
 
                         {/* Floating Card Overlay */}
-                        <div className="absolute bottom-6 left-6 bg-[#12100E]/90 backdrop-blur-md border border-[#D4AF37]/30 p-5 rounded-none shadow-2xl transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 min-w-[200px]">
+                        <a
+                            href="https://www.google.com/maps/place/SPA+VIVIAN%F0%9F%8C%B9SUC.+CANTERA/@19.3200559,-99.0659306,17z/data=!3m1!4b1!4m6!3m5!1s0x85ce0136c8cf7645:0xc73a52e35f57183a!8m2!3d19.3200509!4d-99.0633557!16s%2Fg%2F11m_t30jb0?authuser=0&entry=ttu&g_ep=EgoyMDI2MDIwMS4wIKXMDSoASAFQAw%3D%3D"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="absolute bottom-6 left-6 bg-[#12100E]/90 backdrop-blur-md border border-[#D4AF37]/30 p-5 rounded-none shadow-2xl transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 min-w-[200px] hover:bg-[#12100E] block"
+                        >
                             <div className="flex items-center gap-4">
                                 <div className="w-10 h-10 bg-[#D4AF37] flex items-center justify-center shadow-lg">
                                     <MapPin size={18} className="text-[#12100E]" />
@@ -113,13 +118,20 @@ const Footer = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
                 </div>
 
-                <div className="mt-24 pt-8 border-t border-white/5 flex justify-center text-[10px] tracking-widest uppercase text-white/20 font-sans">
-                    <p>© 2026 Spa Vivian. Todos los derechos reservados.</p>
+                <div className="mt-24 pt-4 pb-6 border-t border-white/5 flex justify-center font-sans">
+                    <a
+                        href="https://devdiazlabs.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[10px] text-stone-500 hover:text-[#D4AF37] transition-colors duration-300 uppercase tracking-widest"
+                    >
+                        Desarrollado por DevDiaz Labs
+                    </a>
                 </div>
             </div>
         </footer>
