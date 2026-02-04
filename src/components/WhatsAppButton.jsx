@@ -18,7 +18,7 @@ const WhatsAppButton = () => {
 
                 {/* Texto */}
                 <span className="font-sans text-white text-[11px] font-bold uppercase tracking-[0.2em] pt-0.5 whitespace-nowrap">
-                    RESERVAR
+                    RESERVAR AHORA
                 </span>
 
                 {/* WhatsApp Icon */}
