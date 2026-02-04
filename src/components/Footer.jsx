@@ -89,7 +89,7 @@ const Footer = () => {
                     {/* Column 3: Map (col-span-5) */}
                     <div className="lg:col-span-5 relative h-[300px] w-full rounded-2xl overflow-hidden group shadow-2xl shadow-black/50 border border-[#D4AF37]/20">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.364406026524!2d-99.1668786!3d19.3099955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDE4JzM2LjAiTiA5OcKwMTAnMDAuOCJX!5e0!3m2!1sen!2smx!4v1614000000000!5m2!1sen!2smx"
+                            src="https://maps.google.com/maps?q=19.3200509,-99.0633557&hl=es&z=16&output=embed"
                             width="100%"
                             height="100%"
                             style={{ border: 0 }}
@@ -100,7 +100,12 @@ const Footer = () => {
                         ></iframe>
 
                         {/* Floating Card Overlay */}
-                        <div className="absolute bottom-6 left-6 bg-[#12100E]/90 backdrop-blur-md border border-[#D4AF37]/30 p-5 rounded-none shadow-2xl transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 min-w-[200px]">
+                        <a
+                            href="https://www.google.com/maps/place/SPA+VIVIAN%F0%9F%8C%B9SUC.+CANTERA/@19.3200559,-99.0659306,17z/data=!3m1!4b1!4m6!3m5!1s0x85ce0136c8cf7645:0xc73a52e35f57183a!8m2!3d19.3200509!4d-99.0633557!16s%2Fg%2F11m_t30jb0?authuser=0&entry=ttu&g_ep=EgoyMDI2MDIwMS4wIKXMDSoASAFQAw%3D%3D"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="absolute bottom-6 left-6 bg-[#12100E]/90 backdrop-blur-md border border-[#D4AF37]/30 p-5 rounded-none shadow-2xl transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 min-w-[200px] hover:bg-[#12100E] block"
+                        >
                             <div className="flex items-center gap-4">
                                 <div className="w-10 h-10 bg-[#D4AF37] flex items-center justify-center shadow-lg">
                                     <MapPin size={18} className="text-[#12100E]" />
@@ -113,7 +118,7 @@ const Footer = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
                 </div>

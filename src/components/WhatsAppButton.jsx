@@ -7,25 +7,22 @@ const WhatsAppButton = () => {
             href="https://wa.me/525514753188"
             target="_blank"
             rel="noopener noreferrer"
-            className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 flex items-center justify-center group"
+            className="fixed bottom-8 right-8 z-[100] flex items-center justify-center group"
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 1, type: "spring", stiffness: 200, damping: 20 }}
             whileHover={{ scale: 1.05 }}
         >
-            {/* Pulse Effect */}
-            <span className="absolute inline-flex h-full w-full rounded-full bg-[#D4AF37] opacity-20 animate-ping duration-[3s]" />
-            <span className="absolute inline-flex h-full w-full rounded-full bg-[#D4AF37] opacity-10 animate-pulse duration-[2s]" />
+            {/* Contenedor principal: Se añadió 'w-auto' y 'min-w-max' para evitar que se haga círculo */}
+            <div className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#B49327] rounded-full shadow-2xl transition-all duration-300 group-hover:shadow-[0_0_25px_rgba(212,175,55,0.4)] border border-white/20 w-auto min-w-max">
 
-            <div className="relative flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#B49327] rounded-full shadow-2xl border border-white/20">
-
-                {/* Text "RESERVAR" */}
-                <span className="font-sans text-white text-xs font-bold uppercase tracking-[0.2em] pt-0.5 block">
+                {/* Texto: Eliminamos 'hidden' y 'md:block' para que se vea SIEMPRE */}
+                <span className="font-sans text-white text-[11px] font-bold uppercase tracking-[0.2em] pt-0.5 block">
                     Reservar Ahora
                 </span>
 
                 {/* WhatsApp Icon */}
-                <div className="w-6 h-6 flex items-center justify-center bg-white/20 rounded-full p-1 backdrop-blur-sm">
+                <div className="w-5 h-5 flex items-center justify-center">
                     <svg
                         viewBox="0 0 24 24"
                         fill="white"
