@@ -7,7 +7,7 @@ const Hero = () => {
     const opacity = useTransform(scrollY, [0, 600], [1, 0]);
 
     return (
-        <section id="hero" className="relative min-h-[80vh] md:h-screen w-full overflow-hidden bg-rich-black">
+        <section id="inicio" className="relative min-h-[80vh] md:h-screen w-full overflow-hidden bg-rich-black">
             {/* Background Parallax */}
             <motion.div style={{ y: yBackend, opacity }} className="absolute inset-0 z-0 will-change-transform">
                 {/* Dark Gradient Overlay for Readability */}
@@ -60,7 +60,7 @@ const Hero = () => {
                         transition={{ delay: 0.8, duration: 0.8 }}
                     >
                         <button
-                            onClick={() => document.getElementById('rituales').scrollIntoView({ behavior: 'smooth' })}
+                            onClick={() => document.getElementById('servicios').scrollIntoView({ behavior: 'smooth' })}
                             className="group relative px-12 py-4 overflow-hidden border border-white/40 text-white font-sans text-xs uppercase tracking-[0.25em] transition-all duration-500 hover:border-white hover:bg-white hover:text-rich-black"
                         >
                             <span className="relative z-10 font-medium">

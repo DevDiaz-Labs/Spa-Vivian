@@ -4,7 +4,7 @@ import { SOCIAL } from '../data/constants';
 
 const Footer = () => {
     return (
-        <footer id="ubicacion" className="bg-rich-black text-white pt-12 pb-8 md:pt-24 md:pb-12 border-t border-[#D4AF37]/30">
+        <footer id="contacto" className="bg-rich-black text-white pt-12 pb-8 md:pt-24 md:pb-12 border-t border-[#D4AF37]/30">
             <div className="container mx-auto px-6 md:px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12">
 

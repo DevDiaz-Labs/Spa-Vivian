@@ -27,10 +27,10 @@ const Navbar = () => {
     }, []);
 
     const navLinks = [
-        { name: 'Inicio', href: '/#hero', isHash: true },
-        { name: 'Servicios', href: '/#rituales', isHash: true },
-        { name: 'Instalaciones', href: '/#espacio', isHash: true },
-        { name: 'Contáctanos', href: '/#ubicacion', isHash: true },
+        { name: 'Inicio', href: '/#inicio', isHash: true },
+        { name: 'Servicios', href: '/#servicios', isHash: true },
+        { name: 'Instalaciones', href: '/#instalaciones', isHash: true },
+        { name: 'Contáctanos', href: '/#contacto', isHash: true },
     ];
 
     const handleLinkClick = (href, isHash) => {
