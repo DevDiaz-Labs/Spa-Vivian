@@ -20,8 +20,8 @@ const WhatsAppButton = () => {
             <div className="relative flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#B49327] rounded-full shadow-2xl border border-white/20">
 
                 {/* Text "RESERVAR" */}
-                <span className="font-sans text-white text-sm font-bold uppercase tracking-[0.2em] pt-0.5 whitespace-nowrap">
-                    RESERVAR
+                <span className="font-sans text-white text-xs font-bold uppercase tracking-[0.2em] pt-0.5 block">
+                    Reservar Ahora
                 </span>
 
                 {/* WhatsApp Icon */}
