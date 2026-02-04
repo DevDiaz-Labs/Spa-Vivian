@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { FULL_MENU, CATEGORY_CONFIG, SOCIAL } from '../data/constants';
+import { FULL_MENU, CATEGORY_CONFIG } from '../data/constants';
 import Masaje from '../assets/masaje.webp';
 
 const RitualsPage = () => {
@@ -17,7 +19,15 @@ const RitualsPage = () => {
 
             <main className="pt-32 pb-24">
                 {/* Page Header */}
-                <div className="container mx-auto px-6 text-center mb-16">
+                <div className="container mx-auto px-6 mb-16 relative">
+                    <Link
+                        to="/"
+                        className="inline-flex items-center gap-2 text-rich-black/60 hover:text-gold-luxury transition-colors duration-300 mb-8 group"
+                    >
+                        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-300" />
+                        <span className="font-sans text-sm tracking-widest uppercase">Volver al Inicio</span>
+                    </Link>
+
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -74,20 +84,6 @@ const RitualsPage = () => {
 
             <Footer />
 
-            {/* WhatsApp Button (Fixed) */}
-            <motion.a
-                href={SOCIAL.whatsapp}
-                target="_blank"
-                rel="noreferrer"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1 }}
-                className="fixed bottom-8 right-8 z-50 mix-blend-difference text-white"
-            >
-                <div className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center hover:scale-110 transition-transform duration-500 cursor-pointer backdrop-blur-sm">
-                    <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                </div>
-            </motion.a>
         </div>
     );
 };

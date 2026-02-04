@@ -48,6 +48,7 @@ const Navbar = () => {
     return (
         <>
             <nav
+                style={{ willChange: 'transform' }}
                 className={`fixed w-full z-50 transition-all duration-500 ease-in-out ${scrolled
                     ? 'py-4 bg-rich-black/80 backdrop-blur-md border-b border-[#D4AF37]/20 shadow-lg'
                     : 'py-8 bg-transparent'
