@@ -4,7 +4,7 @@ import { SOCIAL } from '../data/constants';
 
 const Footer = () => {
     return (
-        <footer id="ubicacion" className="bg-rich-black text-white pt-24 pb-12 border-t border-[#D4AF37]/30">
+        <footer id="ubicacion" className="bg-rich-black text-white pt-12 pb-8 md:pt-24 md:pb-12 border-t border-[#D4AF37]/30">
             <div className="container mx-auto px-6 md:px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12">
 
@@ -118,8 +118,15 @@ const Footer = () => {
 
                 </div>
 
-                <div className="mt-24 pt-8 border-t border-white/5 flex justify-center text-[10px] tracking-widest uppercase text-white/20 font-sans">
-                    <p>© 2026 Spa Vivian. Todos los derechos reservados.</p>
+                <div className="mt-24 pt-4 pb-6 border-t border-white/5 flex justify-center font-sans">
+                    <a
+                        href="https://devdiazlabs.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[10px] text-stone-500 hover:text-[#D4AF37] transition-colors duration-300 uppercase tracking-widest"
+                    >
+                        Desarrollado por DevDiaz Labs.
+                    </a>
                 </div>
             </div>
         </footer>

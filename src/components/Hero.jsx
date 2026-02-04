@@ -47,7 +47,7 @@ const Hero = () => {
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 0.5, duration: 1.2 }}
-                            className="font-serif text-4xl md:text-6xl lg:text-7xl text-stone-100 italic font-light tracking-wide leading-tight drop-shadow-lg"
+                            className="font-serif text-3xl md:text-6xl lg:text-7xl text-stone-100 italic font-light tracking-wide leading-tight drop-shadow-lg"
                         >
                             El sutil arte de la <br className="hidden md:block" /> relajación absoluta
                         </motion.h1>

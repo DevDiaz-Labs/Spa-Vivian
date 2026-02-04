@@ -7,7 +7,7 @@ const WhatsAppButton = () => {
             href="https://wa.me/525514753188"
             target="_blank"
             rel="noopener noreferrer"
-            className="fixed bottom-8 right-8 z-[100] flex items-center justify-center group"
+            className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-[100] flex items-center justify-center group"
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 1, type: "spring", stiffness: 200, damping: 20 }}
@@ -17,7 +17,7 @@ const WhatsAppButton = () => {
 
                 {/* Text */}
                 <span className="font-sans text-white text-xs font-bold uppercase tracking-[0.2em] pt-0.5">
-                    Reservar Ahora
+                    RESERVAR
                 </span>
 
                 {/* WhatsApp Icon */}

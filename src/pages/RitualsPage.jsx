@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { FULL_MENU, CATEGORY_CONFIG } from '../data/constants';
+import { FULL_MENU, CATEGORY_CONFIG, SOCIAL } from '../data/constants';
 
 const RitualsPage = () => {
     // Scroll to top on mount
@@ -133,15 +133,16 @@ const RitualsPage = () => {
                                         {services.map((service, idx) => (
                                             <div
                                                 key={idx}
-                                                className="group flex items-center justify-between py-5 border-b border-[#D4AF37]/30 transition-all duration-300 hover:pl-4 hover:border-[#D4AF37]"
+                                                onClick={() => window.open(SOCIAL.whatsapp, '_blank')}
+                                                className="group flex items-center justify-between py-5 border-b border-[#D4AF37]/30 transition-all duration-300 hover:pl-4 hover:border-[#D4AF37] cursor-pointer"
                                             >
                                                 <span className="font-sans text-rich-black font-light tracking-wider text-sm md:text-base group-hover:text-[#D4AF37] transition-colors duration-300">
                                                     {service}
                                                 </span>
-                                                {/* Optional: Add price or duration placeholder if available in future data */}
-                                                <span className="text-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs tracking-widest uppercase">
+                                                {/* RESERVAR button (Text) */}
+                                                <button className="text-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs tracking-widest uppercase font-medium">
                                                     Reservar
-                                                </span>
+                                                </button>
                                             </div>
                                         ))}
                                     </div>
