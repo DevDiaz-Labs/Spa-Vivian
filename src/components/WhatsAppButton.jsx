@@ -16,7 +16,7 @@ const WhatsAppButton = () => {
             <div className="flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-[#D4AF37] to-[#B49327] rounded-full shadow-2xl transition-all duration-300 group-hover:shadow-[0_0_25px_rgba(212,175,55,0.4)] border border-white/20">
 
                 {/* Text */}
-                <span className="font-sans text-white text-xs font-bold uppercase tracking-[0.2em] pt-0.5 hidden md:block">
+                <span className="font-sans text-white text-xs font-bold uppercase tracking-[0.2em] pt-0.5">
                     Reservar Ahora
                 </span>
 

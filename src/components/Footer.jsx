@@ -96,7 +96,7 @@ const Footer = () => {
                             allowFullScreen=""
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
-                            className="grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700 ease-in-out scale-100 group-hover:scale-105"
+                            className="transition-all duration-700 ease-in-out scale-100 group-hover:scale-105"
                         ></iframe>
 
                         {/* Floating Card Overlay */}

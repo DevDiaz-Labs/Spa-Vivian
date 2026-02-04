@@ -39,7 +39,7 @@ const Hero = () => {
                             transition={{ delay: 0.3, duration: 1 }}
                             className="text-[#D4AF37] text-xs md:text-sm tracking-[0.3em] uppercase font-sans font-medium mb-4"
                         >
-                            Bienvenida al Santuario
+                            Bienvenido a Spa Vivian
                         </motion.span>
 
                         {/* Main Title */}
@@ -64,22 +64,22 @@ const Hero = () => {
                             className="group relative px-12 py-4 overflow-hidden border border-white/40 text-white font-sans text-xs uppercase tracking-[0.25em] transition-all duration-500 hover:border-white hover:bg-white hover:text-rich-black"
                         >
                             <span className="relative z-10 font-medium">
-                                Explorar Rituales
+                                Ver Servicios
                             </span>
                         </button>
                     </motion.div>
                 </motion.div>
-            </div>
+            </div >
 
             {/* Scroll Indicator */}
-            <motion.div
+            < motion.div
                 animate={{ y: [0, 12, 0], opacity: [0.5, 1, 0.5] }}
                 transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
                 className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20"
             >
                 <div className="w-[1px] h-20 bg-gradient-to-b from-transparent via-[#D4AF37] to-transparent" />
-            </motion.div>
-        </section>
+            </motion.div >
+        </section >
     );
 };
 
