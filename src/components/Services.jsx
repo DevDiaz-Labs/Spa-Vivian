@@ -11,12 +11,12 @@ const ServiceItem = ({ service, index }) => {
             <div className={`w-full md:w-1/2 relative px-6 md:px-12 ${isEven ? 'md:order-1' : 'md:order-2'} flex justify-center`}>
                 <div className="relative w-[90%] md:w-full max-w-sm aspect-[3/4]">
                     {/* Gold Glow Behind */}
-                    <div className="absolute inset-4 bg-gold/20 blur-3xl rounded-2xl -z-10" />
+                    <div className="absolute inset-4 bg-gold/20 blur-3xl rounded-none -z-10" />
 
                     <img
                         src={service.image}
                         alt={service.title}
-                        className="w-full h-full object-cover rounded-2xl shadow-2xl z-10"
+                        className="w-full h-full object-cover rounded-none shadow-2xl z-10"
                         loading="lazy"
                         decoding="async"
                     />

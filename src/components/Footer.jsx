@@ -24,11 +24,11 @@ const Footer = () => {
                             </a>
 
                             {/* Facebook */}
-                            <a href="https://www.facebook.com/adyperezc/photos" target="_blank" rel="noreferrer" className="flex items-center gap-4 group w-fit transition-all duration-300 hover:translate-x-2">
+                            <a href="https://www.facebook.com/profile.php?id=100086438814777" target="_blank" rel="noreferrer" className="flex items-center gap-4 group w-fit transition-all duration-300 hover:translate-x-2">
                                 <div className="p-2 border border-[#D4AF37]/30 rounded-full text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-[#11100F] transition-all duration-300">
                                     <Facebook size={20} />
                                 </div>
-                                <span className="text-gray-400 font-sans text-sm tracking-widest group-hover:text-[#D4AF37] transition-colors duration-300">Facebook</span>
+                                <span className="text-gray-400 font-sans text-sm tracking-widest group-hover:text-[#D4AF37] transition-colors duration-300">Spa Vivian</span>
                             </a>
 
                             {/* Instagram */}
@@ -36,7 +36,7 @@ const Footer = () => {
                                 <div className="p-2 border border-[#D4AF37]/30 rounded-full text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-[#11100F] transition-all duration-300">
                                     <Instagram size={20} />
                                 </div>
-                                <span className="text-gray-400 font-sans text-sm tracking-widest group-hover:text-[#D4AF37] transition-colors duration-300">Instagram</span>
+                                <span className="text-gray-400 font-sans text-sm tracking-widest group-hover:text-[#D4AF37] transition-colors duration-300">@spa_vivian</span>
                             </a>
 
                             {/* TikTok */}
@@ -46,7 +46,7 @@ const Footer = () => {
                                         <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
                                     </svg>
                                 </div>
-                                <span className="text-gray-400 font-sans text-sm tracking-widest group-hover:text-[#D4AF37] transition-colors duration-300">TikTok</span>
+                                <span className="text-gray-400 font-sans text-sm tracking-widest group-hover:text-[#D4AF37] transition-colors duration-300">@spa.vivian0</span>
                             </a>
                         </div>
                     </div>
@@ -125,7 +125,7 @@ const Footer = () => {
                         rel="noopener noreferrer"
                         className="text-[10px] text-stone-500 hover:text-[#D4AF37] transition-colors duration-300 uppercase tracking-widest"
                     >
-                        Desarrollado por DevDiaz Labs.
+                        Desarrollado por DevDiaz Labs
                     </a>
                 </div>
             </div>
