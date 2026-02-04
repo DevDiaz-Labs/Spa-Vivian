@@ -8,7 +8,7 @@ import Detalle from '../assets/galeria-detalle.webp';
 
 const Installations = () => {
     return (
-        <section className="relative overflow-hidden bg-rich-black py-24 md:py-32">
+        <section id="espacio" className="relative overflow-hidden bg-rich-black py-24 md:py-32">
             {/* Background with blur (optional luxury touch) */}
             <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37] rounded-full blur-[120px] mix-blend-screen" />
@@ -52,15 +52,15 @@ const Installations = () => {
                     <div className="text-left space-y-8">
                         <div>
                             <span className="text-[#D4AF37] text-xs tracking-[0.3em] font-sans font-bold uppercase mb-4 block">
-                                Conoce nuestras instalaciones
+                                TU REFUGIO PERSONAL
                             </span>
                             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white leading-tight">
-                                Sumérgete en un espacio diseñado para tu bienestar
+                                En Spa Vivian, creemos que el verdadero lujo reside en la calidez.
                             </h2>
                         </div>
 
                         <p className="font-sans text-gray-300 leading-loose font-light text-sm md:text-base">
-                            En Spa Vivian encontrarás ambientes modernos, confortables y equipados con tecnología de última generación. Cada rincón ha sido pensado para aislarte del ruido exterior y envolverte en una atmósfera de paz absoluta.
+                            Hemos diseñado un espacio íntimo donde la luz suave y la calma te invitan a soltar la carga del día. Un rincón dedicado exclusivamente a tu cuidado y descanso.
                         </p>
 
                         {/* Amenities Grid */}
@@ -107,9 +107,11 @@ const Installations = () => {
                         </div>
 
                         <div className="pt-6">
-                            <Button variant="outline" onClick={() => window.open(SOCIAL.whatsapp, '_blank')}>
-                                Reservar Visita
-                            </Button>
+                            <div className="pt-6">
+                                <Button variant="outline" onClick={() => window.open(SOCIAL.whatsapp, '_blank')} className="text-[#D4AF37] hover:text-[#121212]">
+                                    Reservar Visita
+                                </Button>
+                            </div>
                         </div>
                     </div>
 

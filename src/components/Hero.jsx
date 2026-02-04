@@ -7,7 +7,7 @@ const Hero = () => {
     const opacity = useTransform(scrollY, [0, 600], [1, 0]);
 
     return (
-        <section className="relative h-screen w-full overflow-hidden bg-rich-black">
+        <section id="hero" className="relative h-screen w-full overflow-hidden bg-rich-black">
             {/* Background Parallax */}
             <motion.div style={{ y: yBackend, opacity }} className="absolute inset-0 z-0 will-change-transform">
                 {/* Dark Gradient Overlay for Readability */}
