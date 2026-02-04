@@ -7,7 +7,7 @@ const Hero = () => {
     const opacity = useTransform(scrollY, [0, 600], [1, 0]);
 
     return (
-        <section id="hero" className="relative h-screen w-full overflow-hidden bg-rich-black">
+        <section id="hero" className="relative min-h-[80vh] md:h-screen w-full overflow-hidden bg-rich-black">
             {/* Background Parallax */}
             <motion.div style={{ y: yBackend, opacity }} className="absolute inset-0 z-0 will-change-transform">
                 {/* Dark Gradient Overlay for Readability */}
@@ -15,14 +15,14 @@ const Hero = () => {
                 <img
                     src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&q=80&w=2000"
                     alt="Luxury Spa Atmosphere"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-[75%_center] md:object-center"
                     loading="eager"
                     decoding="async"
                 />
             </motion.div>
 
             {/* Content */}
-            <div className="relative z-20 h-full flex flex-col justify-center items-center text-center px-6">
+            <div className="relative z-20 h-full flex flex-col justify-center items-center text-center px-6 pt-32 md:pt-0">
                 <motion.div
                     initial={{ opacity: 0, y: 60 }}
                     animate={{ opacity: 1, y: 0 }}
