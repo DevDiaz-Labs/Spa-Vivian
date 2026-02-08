@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import logo from '../assets/logo-spa-vivian.webp';
 
 const Hero = () => {
     const { scrollY } = useScroll();
@@ -32,6 +33,16 @@ const Hero = () => {
 
                     {/* Typography Composition */}
                     <div className="flex flex-col items-center mb-10">
+                        {/* Logo */}
+                        <motion.img
+                            src={logo}
+                            alt="Spa Vivian Logo"
+                            className="w-56 md:w-72 mb-6 drop-shadow-lg"
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1, delay: 0.2 }}
+                        />
+
                         {/* Eyebrow */}
                         <motion.span
                             initial={{ opacity: 0, y: 20 }}
@@ -70,15 +81,6 @@ const Hero = () => {
                     </motion.div>
                 </motion.div>
             </div >
-
-            {/* Scroll Indicator */}
-            < motion.div
-                animate={{ y: [0, 12, 0], opacity: [0.5, 1, 0.5] }}
-                transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20"
-            >
-                <div className="w-[1px] h-20 bg-gradient-to-b from-transparent via-[#D4AF37] to-transparent" />
-            </motion.div >
         </section >
     );
 };
