@@ -62,10 +62,10 @@ const Footer = () => {
                                 </div>
                                 <div className="space-y-2">
                                     <p className="font-sans text-white/80 font-light text-sm leading-loose">
-                                        Olcuautitlan, Cantera Puente de Piedra, Iztapalapa
+                                        Olcuautitlan 15, Cantera Puente de Piedra, Tlalpan
                                     </p>
                                     <p className="font-sans text-white/60 font-light text-sm leading-loose">
-                                        CDMX 14040
+                                        14040 Ciudad de México, CDMX
                                     </p>
                                 </div>
                             </div>
@@ -89,7 +89,7 @@ const Footer = () => {
                     {/* Column 3: Map (col-span-5) */}
                     <div className="lg:col-span-5 relative h-[300px] w-full rounded-2xl overflow-hidden group shadow-2xl shadow-black/50 border border-[#D4AF37]/20">
                         <iframe
-                            src="https://maps.google.com/maps?q=19.3200509,-99.0633557&hl=es&z=16&output=embed"
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d702.9594318451631!2d-99.16411040937072!3d19.297802882852153!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce005c40bfa26f%3A0xabde610018c91d23!2sOlcuautitlan%2015%2C%20Cantera%20Puente%20de%20Piedra%2C%20Tlalpan%2C%2014040%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1sen!2smx!4v1770585409800!5m2!1sen!2smx"
                             width="100%"
                             height="100%"
                             style={{ border: 0 }}
@@ -98,10 +98,8 @@ const Footer = () => {
                             referrerPolicy="no-referrer-when-downgrade"
                             className="transition-all duration-700 ease-in-out scale-100 group-hover:scale-105"
                         ></iframe>
-
-                        {/* Floating Card Overlay */}
                         <a
-                            href="https://www.google.com/maps/place/SPA+VIVIAN%F0%9F%8C%B9SUC.+CANTERA/@19.3200559,-99.0659306,17z/data=!3m1!4b1!4m6!3m5!1s0x85ce0136c8cf7645:0xc73a52e35f57183a!8m2!3d19.3200509!4d-99.0633557!16s%2Fg%2F11m_t30jb0?authuser=0&entry=ttu&g_ep=EgoyMDI2MDIwMS4wIKXMDSoASAFQAw%3D%3D"
+                            href="https://www.google.com/maps/place/Olcuautitlan+15,+Cantera+Puente+de+Piedra,+Tlalpan,+14040+Ciudad+de+M%C3%A9xico,+CDMX/@19.2979,-99.1639,17z/data=!4m6!3m5!1s0x85ce005c40bfa26f:0xabde610018c91d23!8m2!3d19.2978946!4d-99.163862!16s%2Fg%2F11j0zr42c8?hl=en&entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="absolute bottom-6 left-6 bg-[#12100E]/90 backdrop-blur-md border border-[#D4AF37]/30 p-5 rounded-none shadow-2xl transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 min-w-[200px] hover:bg-[#12100E] block"

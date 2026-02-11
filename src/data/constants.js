@@ -48,19 +48,19 @@ export const FEATURED_SERVICES = [
 
 export const FULL_MENU = {
     facial: [
-        "Limpieza facial", "Facial Galvánica", "Facial Premium", "Exfoliación", "Perfilado de ceja", "Conoterapia"
+        "Conoterapia", "Facial Galvánica", "Facial Premium", "Limpieza facial"
     ],
     body: [
-        "Mesoterapia", "Masaje Reductivo", "Cavitación", "Radiofrecuencia", "Ultrasonido", "Lipoláser", "Vacumterapia", "Gimnasia Pasiva", "Electroestimulación", "Maderoterapia"
+        "Chocolaterapia", "Masaje con electroestimulación", "Masaje con Maderoterapia", "Masaje Reductivo",
     ],
     relax: [
-        "Relajante", "Descontracturante", "Tejido Profundo", "Piedras Calientes", "Bambú", "Ventosas", "Pistola acupresión", "Almohadillas Calientes", "Exfoliación corporal"
+        "Masaje relajante", "Masaje Descontracturante", "Masaje de Tejido Profundo", "Masaje con piedras Calientes", "Masaje con barras de Bambú", "Masaje con ventosas", "Masaje con pistola acupresión", "Masaje con almohadillas Calientes", "Exfoliación corporal"
     ],
     health: [
-        "Desintoxicación Iónica", "Auriculoterapia", "Drenaje Linfático", "Presoterapia"
+        "Auriculoterapia", "Desintoxicación Iónica", "Presoterapia", "Presoterapia para piernas"
     ],
     specialized: [
-        "Deportivo", "Post operatorio", "Post parto", "Geriátrico", "Empacho", "Bebés"
+        "Masaje deportivo", "Masaje geriátrico", "Masaje para bebés e infantíl", "Masaje para empacho", "Masaje post operatorio", "Masaje post parto"
     ]
 };
 
@@ -74,5 +74,5 @@ export const CATEGORY_CONFIG = {
     body: { title: "Moldeado Corporal", image: Reductor },
     relax: { title: "Masajes Relajantes", image: Masaje },
     health: { title: "Salud & Detox", image: Cabina },
-    specialized: { title: "Rituales Especializados", image: Camillas }
+    specialized: { title: "Especializados", image: Camillas }
 };
