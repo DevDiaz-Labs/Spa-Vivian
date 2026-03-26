@@ -8,7 +8,7 @@ import Detalle from '../assets/galeria-detalle.webp';
 
 const Installations = () => {
     return (
-        <section id="espacio" className="relative overflow-hidden bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#1C1917] to-black py-12 md:py-32">
+        <section id="instalaciones" className="relative overflow-hidden bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#1C1917] to-black py-12 md:py-32">
 
             {/* Golden Glow Effect */}
             <div className="absolute top-1/2 left-0 lg:left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-[#D4AF37]/15 rounded-full blur-[100px] pointer-events-none mix-blend-screen" />

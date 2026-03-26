@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import logo from '../assets/logo-spa-vivian.webp';
 
 const Hero = () => {
     const { scrollY } = useScroll();
@@ -7,7 +8,7 @@ const Hero = () => {
     const opacity = useTransform(scrollY, [0, 600], [1, 0]);
 
     return (
-        <section id="hero" className="relative min-h-[80vh] md:h-screen w-full overflow-hidden bg-rich-black">
+        <section id="inicio" className="relative min-h-[80vh] md:h-screen w-full overflow-hidden bg-rich-black">
             {/* Background Parallax */}
             <motion.div style={{ y: yBackend, opacity }} className="absolute inset-0 z-0 will-change-transform">
                 {/* Dark Gradient Overlay for Readability */}
@@ -32,6 +33,16 @@ const Hero = () => {
 
                     {/* Typography Composition */}
                     <div className="flex flex-col items-center mb-10">
+                        {/* Logo */}
+                        <motion.img
+                            src={logo}
+                            alt="Spa Vivian Logo"
+                            className="w-56 md:w-72 mb-6 drop-shadow-lg"
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1, delay: 0.2 }}
+                        />
+
                         {/* Eyebrow */}
                         <motion.span
                             initial={{ opacity: 0, y: 20 }}
@@ -60,7 +71,7 @@ const Hero = () => {
                         transition={{ delay: 0.8, duration: 0.8 }}
                     >
                         <button
-                            onClick={() => document.getElementById('rituales').scrollIntoView({ behavior: 'smooth' })}
+                            onClick={() => document.getElementById('servicios').scrollIntoView({ behavior: 'smooth' })}
                             className="group relative px-12 py-4 overflow-hidden border border-white/40 text-white font-sans text-xs uppercase tracking-[0.25em] transition-all duration-500 hover:border-white hover:bg-white hover:text-rich-black"
                         >
                             <span className="relative z-10 font-medium">
@@ -70,15 +81,6 @@ const Hero = () => {
                     </motion.div>
                 </motion.div>
             </div >
-
-            {/* Scroll Indicator */}
-            < motion.div
-                animate={{ y: [0, 12, 0], opacity: [0.5, 1, 0.5] }}
-                transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20"
-            >
-                <div className="w-[1px] h-20 bg-gradient-to-b from-transparent via-[#D4AF37] to-transparent" />
-            </motion.div >
         </section >
     );
 };

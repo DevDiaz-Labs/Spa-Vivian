@@ -17,6 +17,8 @@ const App = () => {
           <Route path="/rituales" element={<RitualsPage />} />
         </Routes>
 
+        <WhatsAppButton />
+
       </div>
     </Router>
   );

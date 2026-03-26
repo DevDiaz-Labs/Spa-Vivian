@@ -50,7 +50,7 @@ const ServiceItem = ({ service, index }) => {
 
 const Services = () => {
     return (
-        <section id="rituales" className="relative z-30 bg-soft-blush bg-noise pb-12 md:pb-32">
+        <section id="servicios" className="relative z-30 bg-soft-blush bg-noise pb-12 md:pb-32">
             <div className="pt-16 pb-8 md:pt-32 md:pb-16 container mx-auto px-6 text-center">
                 <span className="text-gold-luxury text-xs tracking-[0.4em] uppercase block mb-6 font-bold">
                     Menú de Servicios
@@ -71,7 +71,7 @@ const Services = () => {
                     to="/rituales"
                     className="px-12 py-5 border border-gold text-gold hover:bg-gold hover:text-rich-black transition-all duration-500 font-sans tracking-[0.25em] text-xs uppercase font-medium"
                 >
-                    Explorar Menú Completo
+                    Explorar todos los servicios
                 </Link>
             </div>
         </section>
