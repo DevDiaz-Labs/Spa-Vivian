@@ -37,7 +37,10 @@ const ServiceItem = ({ service, index }) => {
                         {service.description}
                     </p>
                     <button
-                        onClick={() => window.open(SOCIAL.whatsapp, '_blank')}
+                        onClick={() => {
+                            const message = encodeURIComponent(`Hola, me gustaría reservar una sesión de ${service.title}`);
+                            window.open(`${SOCIAL.whatsapp}?text=${message}`, '_blank');
+                        }}
                         className="text-gold uppercase text-xs tracking-[0.2em] border-b border-gold pb-1 hover:text-rich-black hover:border-rich-black transition-colors duration-300"
                     >
                         Reservar Experiencia

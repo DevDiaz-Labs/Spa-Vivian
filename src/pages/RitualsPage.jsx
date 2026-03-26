@@ -133,7 +133,10 @@ const RitualsPage = () => {
                                         {services.map((service, idx) => (
                                             <div
                                                 key={idx}
-                                                onClick={() => window.open(SOCIAL.whatsapp, '_blank')}
+                                                onClick={() => {
+                                                    const message = encodeURIComponent(`Hola, me gustaría reservar una sesión de ${service}`);
+                                                    window.open(`${SOCIAL.whatsapp}?text=${message}`, '_blank');
+                                                }}
                                                 className="group flex items-center justify-between py-5 border-b border-[#D4AF37]/30 transition-all duration-300 hover:pl-4 hover:border-[#D4AF37] cursor-pointer"
                                             >
                                                 <span className="font-sans text-rich-black font-light tracking-wider text-sm md:text-base group-hover:text-[#D4AF37] transition-colors duration-300">
