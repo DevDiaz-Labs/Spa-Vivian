@@ -35,14 +35,6 @@ const Navbar = () => {
 
     const handleLinkClick = (href, isHash) => {
         setMenuOpen(false);
-        // If it's a hash link and we are on home, scroll to it
-        if (isHash && isHome) {
-            const elementId = href.split('#')[1];
-            const element = document.getElementById(elementId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
     };
 
 
@@ -73,39 +65,15 @@ const Navbar = () => {
                     {/* Desktop Links */}
                     <div className="hidden md:flex items-center gap-12">
                         {navLinks.map((item) => (
-                            item.isHash ? (
-                                isHome ? (
-                                    <a
-                                        key={item.name}
-                                        href={item.href.replace('/', '')} // Remove leading slash for local anchor
-                                        className={`group relative text-xs uppercase tracking-[0.2em] font-sans font-medium transition-colors duration-300 ${scrolled || !isHome ? 'text-[#D4AF37]' : 'text-white/90 hover:text-[#D4AF37]'
-                                            }`}
-                                    >
-                                        {item.name}
-                                        <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-gold-gradient transition-all duration-300 group-hover:w-full" />
-                                    </a>
-                                ) : (
-                                    <Link
-                                        key={item.name}
-                                        to={item.href}
-                                        className={`group relative text-xs uppercase tracking-[0.2em] font-sans font-medium transition-colors duration-300 ${scrolled || !isHome ? 'text-[#D4AF37]' : 'text-white/90 hover:text-[#D4AF37]'
-                                            }`}
-                                    >
-                                        {item.name}
-                                        <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-gold-gradient transition-all duration-300 group-hover:w-full" />
-                                    </Link>
-                                )
-                            ) : (
-                                <Link
-                                    key={item.name}
-                                    to={item.href}
-                                    className={`group relative text-xs uppercase tracking-[0.2em] font-sans font-medium transition-colors duration-300 ${scrolled || !isHome ? 'text-[#D4AF37]' : 'text-white/90 hover:text-[#D4AF37]'
-                                        }`}
-                                >
-                                    {item.name}
-                                    <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-gold-gradient transition-all duration-300 group-hover:w-full" />
-                                </Link>
-                            )
+                            <Link
+                                key={item.name}
+                                to={item.href}
+                                className={`group relative text-xs uppercase tracking-[0.2em] font-sans font-medium transition-colors duration-300 ${scrolled || !isHome ? 'text-[#D4AF37]' : 'text-white/90 hover:text-[#D4AF37]'
+                                    }`}
+                            >
+                                {item.name}
+                                <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-gold-gradient transition-all duration-300 group-hover:w-full" />
+                            </Link>
                         ))}
 
                         {/* Reserve Button */}
@@ -143,36 +111,14 @@ const Navbar = () => {
                     >
                         <div className="flex flex-col items-center gap-10">
                             {navLinks.map((item) => (
-                                item.isHash ? (
-                                    (isHome) ? (
-                                        <a
-                                            key={item.name}
-                                            href={item.href.replace('/', '')}
-                                            onClick={() => setMenuOpen(false)}
-                                            className="font-serif text-4xl text-white/90 hover:text-[#D4AF37] transition-colors duration-300 italic"
-                                        >
-                                            {item.name}
-                                        </a>
-                                    ) : (
-                                        <Link
-                                            key={item.name}
-                                            to={item.href}
-                                            onClick={() => setMenuOpen(false)}
-                                            className="font-serif text-4xl text-white/90 hover:text-[#D4AF37] transition-colors duration-300 italic"
-                                        >
-                                            {item.name}
-                                        </Link>
-                                    )
-                                ) : (
-                                    <Link
-                                        key={item.name}
-                                        to={item.href}
-                                        onClick={() => setMenuOpen(false)}
-                                        className="font-serif text-4xl text-white/90 hover:text-[#D4AF37] transition-colors duration-300 italic"
-                                    >
-                                        {item.name}
-                                    </Link>
-                                )
+                                <Link
+                                    key={item.name}
+                                    to={item.href}
+                                    onClick={() => setMenuOpen(false)}
+                                    className="font-serif text-4xl text-white/90 hover:text-[#D4AF37] transition-colors duration-300 italic"
+                                >
+                                    {item.name}
+                                </Link>
                             ))}
                         </div>
                     </motion.div>

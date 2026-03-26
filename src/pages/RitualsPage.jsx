@@ -155,10 +155,16 @@ const RitualsPage = () => {
                     </div>
 
                     {/* Footer for Right Column */}
-                    <div className="mt-32 pt-12 border-t border-rich-black/10">
-                        <p className="font-sans text-xs text-rich-black/50 text-center uppercase tracking-widest">
-                            © 2026 Spa Vivian. Todos los derechos reservados.
-                        </p>
+                    {/* Footer for Right Column */}
+                    <div className="mt-32 pt-4 pb-6 border-t border-rich-black/10 flex justify-center font-sans">
+                        <a
+                            href="https://devdiazlabs.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[10px] text-rich-black/40 hover:text-[#D4AF37] transition-colors duration-300 uppercase tracking-widest text-center"
+                        >
+                            Desarrollado por DevDiaz Labs
+                        </a>
                     </div>
 
                 </div>
