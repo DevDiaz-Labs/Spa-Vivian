@@ -37,7 +37,10 @@ const ServiceItem = ({ service, index }) => {
                         {service.description}
                     </p>
                     <button
-                        onClick={() => window.open(SOCIAL.whatsapp, '_blank')}
+                        onClick={() => {
+                            const message = encodeURIComponent(`Hola, me gustaría reservar una sesión de ${service.title}`);
+                            window.open(`${SOCIAL.whatsapp}?text=${message}`, '_blank');
+                        }}
                         className="text-gold uppercase text-xs tracking-[0.2em] border-b border-gold pb-1 hover:text-rich-black hover:border-rich-black transition-colors duration-300"
                     >
                         Reservar Experiencia
@@ -69,7 +72,7 @@ const Services = () => {
             <div className="mt-24 flex justify-center">
                 <Link
                     to="/rituales"
-                    className="px-12 py-5 border border-gold text-gold hover:bg-gold hover:text-rich-black transition-all duration-500 font-sans tracking-[0.25em] text-xs uppercase font-medium"
+                    className="px-8 md:px-12 py-5 border border-gold text-gold hover:bg-gold hover:text-rich-black transition-all duration-500 font-sans tracking-[0.2em] md:tracking-[0.25em] text-[10px] md:text-xs uppercase font-medium text-center"
                 >
                     Explorar todos los servicios
                 </Link>
