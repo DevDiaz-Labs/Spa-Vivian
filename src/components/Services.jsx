@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import { FEATURED_SERVICES, SOCIAL } from '../data/constants';
 
 const ServiceItem = ({ service, index }) => {
     const isEven = index % 2 === 0;
+    const { addToCart } = useCart();
 
     return (
         <div className="flex flex-col md:flex-row items-center py-12 md:py-24 w-full max-w-7xl mx-auto">
@@ -37,10 +39,11 @@ const ServiceItem = ({ service, index }) => {
                         {service.description}
                     </p>
                     <button
-                        onClick={() => {
-                            const message = encodeURIComponent(`Hola, me gustaría reservar una sesión de ${service.title}`);
-                            window.open(`${SOCIAL.whatsapp}?text=${message}`, '_blank');
-                        }}
+                        onClick={() => addToCart({
+                            id: service.id,
+                            title: service.title,
+                            image: service.image
+                        })}
                         className="text-gold uppercase text-xs tracking-[0.2em] border-b border-gold pb-1 hover:text-rich-black hover:border-rich-black transition-colors duration-300"
                     >
                         Reservar Experiencia
