@@ -1,12 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Plus } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { FULL_MENU, CATEGORY_CONFIG, SOCIAL } from '../data/constants';
+import { useCart } from '../context/CartContext';
 
 const RitualsPage = () => {
+    const { addToCart } = useCart();
+    
     // Scroll to top on mount
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -133,19 +136,25 @@ const RitualsPage = () => {
                                         {services.map((service, idx) => (
                                             <div
                                                 key={idx}
-                                                onClick={() => {
-                                                    const message = encodeURIComponent(`Hola, me gustaría reservar una sesión de ${service}`);
-                                                    window.open(`${SOCIAL.whatsapp}?text=${message}`, '_blank');
-                                                }}
+                                                onClick={() => addToCart({
+                                                    id: `${key}-${idx}`,
+                                                    title: service,
+                                                    image: config.image
+                                                })}
                                                 className="group flex items-center justify-between py-5 border-b border-[#D4AF37]/30 transition-all duration-300 hover:pl-4 hover:border-[#D4AF37] cursor-pointer"
                                             >
                                                 <span className="font-sans text-rich-black font-light tracking-wider text-sm md:text-base group-hover:text-[#D4AF37] transition-colors duration-300">
                                                     {service}
                                                 </span>
-                                                {/* RESERVAR button (Text) */}
-                                                <button className="text-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs tracking-widest uppercase font-medium">
+                                                {/* Desktop: Text "Reservar" on hover */}
+                                                <button className="hidden lg:block text-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs tracking-widest uppercase font-medium">
                                                     Reservar
                                                 </button>
+                                                
+                                                {/* Mobile: Persistent Circle with + icon */}
+                                                <div className="lg:hidden w-8 h-8 rounded-full border border-[#D4AF37]/50 flex items-center justify-center text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-white transition-all duration-300">
+                                                    <Plus size={16} />
+                                                </div>
                                             </div>
                                         ))}
                                     </div>
