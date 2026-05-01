@@ -6,6 +6,8 @@ import Camillas from '../assets/galeria-camillas.webp';
 import Cabina from '../assets/galeria-cabina.webp';
 import Detalle from '../assets/galeria-detalle.webp';
 
+import Watermark from './Watermark';
+
 const Installations = () => {
     return (
         <section id="instalaciones" className="relative overflow-hidden bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#1C1917] to-black py-12 md:py-32">
@@ -26,6 +28,7 @@ const Installations = () => {
                                 alt="Detalle Spa"
                                 className="w-full h-full object-cover"
                             />
+                            <Watermark className="absolute bottom-4 right-4 w-10 opacity-60 pointer-events-none" />
                         </div>
 
                         {/* Back Right: Cabina */}
@@ -35,6 +38,7 @@ const Installations = () => {
                                 alt="Cabina Spa"
                                 className="w-full h-full object-cover"
                             />
+                            <Watermark className="absolute bottom-4 right-4 w-10 opacity-60 pointer-events-none" />
                         </div>
 
                         {/* Main Center: Camillas */}
@@ -44,6 +48,7 @@ const Installations = () => {
                                 alt="Camillas Spa"
                                 className="w-full h-full object-cover"
                             />
+                            <Watermark className="absolute bottom-4 right-4 w-12 opacity-80 pointer-events-none" />
                         </div>
                     </div>
 

@@ -65,12 +65,22 @@ export const CartProvider = ({ children }) => {
 
   const totalItems = (Array.isArray(cart) ? cart : []).reduce((acc, item) => acc + (item.quantity || 0), 0);
 
-  const generateWhatsAppMessage = () => {
+  const totalPrice = (Array.isArray(cart) ? cart : []).reduce((acc, item) => acc + ((item.price || 0) * (item.quantity || 1)), 0);
+
+  const generateWhatsAppMessage = (userName, bookDate) => {
     const currentCart = Array.isArray(cart) ? cart : [];
     if (currentCart.length === 0) return null;
     const intro = 'Hola, me gustaría reservar los siguientes servicios en Spa Vivian:';
-    const servicesList = currentCart.map(item => `${item.quantity || 1}x ${item.title}`).join('%0A- ');
-    const message = `${intro}%0A%0A- ${servicesList}%0A%0AMi nombre es: `;
+    
+    let total = 0;
+    const servicesList = currentCart.map(item => {
+      const itemPrice = item.price || 0;
+      const itemQty = item.quantity || 1;
+      total += (itemPrice * itemQty);
+      return `${itemQty}x ${item.title} ($${itemPrice.toLocaleString()} MXN c/u)`;
+    }).join('%0A- ');
+
+    const message = `${intro}%0A%0A- ${servicesList}%0A%0A*Total Estimado: $${total.toLocaleString()} MXN*%0A%0A*Datos de Reserva:*%0ANombre: ${userName}%0AFecha deseada: ${bookDate}`;
     return message;
   };
 
@@ -83,6 +93,7 @@ export const CartProvider = ({ children }) => {
     updateQuantity,
     clearCart,
     totalItems,
+    totalPrice,
     generateWhatsAppMessage
   };
 

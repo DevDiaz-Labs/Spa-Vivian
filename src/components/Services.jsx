@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { FEATURED_SERVICES, SOCIAL } from '../data/constants';
 
+import Watermark from './Watermark';
+
 const ServiceItem = ({ service, index }) => {
     const isEven = index % 2 === 0;
     const { addToCart } = useCart();
@@ -11,17 +13,18 @@ const ServiceItem = ({ service, index }) => {
         <div className="flex flex-col md:flex-row items-center py-12 md:py-24 w-full max-w-7xl mx-auto">
             {/* Image Section - Arch Shape */}
             <div className={`w-full md:w-1/2 relative px-6 md:px-12 ${isEven ? 'md:order-1' : 'md:order-2'} flex justify-center`}>
-                <div className="relative w-[90%] md:w-full max-w-sm aspect-[3/4]">
+                <div className="relative w-[90%] md:w-full max-w-sm aspect-[3/4] overflow-hidden group">
                     {/* Gold Glow Behind */}
                     <div className="absolute inset-4 bg-gold/20 blur-3xl rounded-none -z-10" />
 
                     <img
                         src={service.image}
                         alt={service.title}
-                        className="w-full h-full object-cover rounded-none shadow-2xl z-10"
+                        className="w-full h-full object-cover rounded-none shadow-2xl z-10 transition-transform duration-700 group-hover:scale-110"
                         loading="lazy"
                         decoding="async"
                     />
+                    <Watermark className="absolute top-6 right-6 w-16 md:w-24 opacity-60 pointer-events-none z-20 transition-all duration-500 group-hover:opacity-100 group-hover:scale-110" />
                 </div>
             </div>
 
@@ -32,9 +35,10 @@ const ServiceItem = ({ service, index }) => {
             >
                 <div className={`bg-soft-blush/80 backdrop-blur-sm p-8 md:p-12 rounded-2xl border border-white/50 shadow-xl max-w-lg ${isEven ? 'text-left' : 'text-right'}`}>
                     <span className="text-gold-luxury text-sm tracking-[0.3em] font-sans mb-4 font-bold block">0{index + 1}</span>
-                    <h3 className="font-serif text-3xl md:text-5xl text-rich-black mb-6 leading-tight">
+                    <h3 className="font-serif text-3xl md:text-5xl text-rich-black mb-2 leading-tight">
                         {service.title}
                     </h3>
+                    <p className="text-gold font-sans font-bold mb-6 italic text-xl">${(service.price || 0).toLocaleString()} MXN</p>
                     <p className="font-sans text-gray-600 leading-loose mb-8 text-sm md:text-base">
                         {service.description}
                     </p>
@@ -42,7 +46,8 @@ const ServiceItem = ({ service, index }) => {
                         onClick={() => addToCart({
                             id: service.id,
                             title: service.title,
-                            image: service.image
+                            image: service.image,
+                            price: service.price
                         })}
                         className="text-gold uppercase text-xs tracking-[0.2em] border-b border-gold pb-1 hover:text-rich-black hover:border-rich-black transition-colors duration-300"
                     >

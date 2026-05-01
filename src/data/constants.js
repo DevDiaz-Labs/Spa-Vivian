@@ -24,43 +24,69 @@ export const FEATURED_SERVICES = [
         id: "01",
         title: "Masaje Relajante",
         description: "Una sinfonía de movimientos fluidos que disuelven la tensión y armonizan cuerpo y mente.",
-        image: Masaje
+        image: Masaje,
+        price: 850
     },
     {
         id: "02",
         title: "Descontracturante",
         description: "Terapia profunda enfocada en liberar la rigidez muscular y restaurar la movilidad natural.",
-        image: Descontractura
+        image: Descontractura,
+        price: 950
     },
     {
         id: "03",
         title: "Masaje Reductivo",
         description: "Técnica vigorosa que remodela la silueta y estimula la vitalidad de la piel.",
-        image: Reductor
+        image: Reductor,
+        price: 1100
     },
     {
         id: "04",
         title: "Facial Hidratante",
         description: "Ritual de luminosidad que nutre profundamente y revela el resplandor natural de tu rostro.",
-        image: Facial
+        image: Facial,
+        price: 700
     }
 ];
 
 export const FULL_MENU = {
     facial: [
-        "Conoterapia", "Facial Galvánica", "Facial Premium", "Limpieza facial"
+        { title: "Conoterapia", price: 450 },
+        { title: "Facial Galvánica", price: 850 },
+        { title: "Facial Premium", price: 1200 },
+        { title: "Limpieza facial", price: 600 }
     ],
     body: [
-        "Chocolaterapia", "Masaje con electroestimulación", "Masaje con Maderoterapia", "Masaje Reductivo",
+        { title: "Chocolaterapia", price: 900 },
+        { title: "Masaje con electroestimulación", price: 750 },
+        { title: "Masaje con Maderoterapia", price: 850 },
+        { title: "Masaje Reductivo", price: 1100 },
     ],
     relax: [
-        "Masaje relajante", "Masaje Descontracturante", "Masaje de Tejido Profundo", "Masaje con piedras Calientes", "Masaje con barras de Bambú", "Masaje con ventosas", "Masaje con pistola acupresión", "Masaje con almohadillas Calientes", "Exfoliación corporal"
+        { title: "Masaje relajante", price: 850 },
+        { title: "Masaje Descontracturante", price: 950 },
+        { title: "Masaje de Tejido Profundo", price: 1100 },
+        { title: "Masaje con piedras Calientes", price: 950 },
+        { title: "Masaje con barras de Bambú", price: 850 },
+        { title: "Masaje con ventosas", price: 800 },
+        { title: "Masaje con pistola acupresión", price: 750 },
+        { title: "Masaje con almohadillas Calientes", price: 800 },
+        { title: "Exfoliación corporal", price: 650 }
     ],
     health: [
-        "Auriculoterapia", "Desintoxicación Iónica", "Presoterapia", "Presoterapia para piernas"
+        { title: "Auriculoterapia", price: 400 },
+        { title: "Desintoxicación Iónica", price: 500 },
+        { title: "Presoterapia", price: 600 },
+        { title: "Presoterapia para piernas", price: 450 }
     ],
     specialized: [
-        "Masaje deportivo", "Masaje geriátrico", "Masaje para bebés e infantíl", "Masaje para empacho", "Masaje post operatorio", "Masaje post parto"
+        { title: "Masaje deportivo", price: 1000 },
+        { title: "Masaje geriátrico", price: 850 },
+        { title: "Masaje para bebés e infantíl", price: 600 },
+        { title: "Masaje para empacho", price: 450 },
+        { title: "Masaje post operatorio", price: 1200 },
+        { title: "Masaje post parto", price: 1100 }
     ]
 };
 

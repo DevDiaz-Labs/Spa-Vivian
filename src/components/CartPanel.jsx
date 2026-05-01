@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { X, Minus, Plus, Trash2 } from 'lucide-react';
 import { SOCIAL } from '../data/constants';
 
 const CartPanel = () => {
-  const { cart, isOpen, setIsOpen, removeFromCart, updateQuantity, generateWhatsAppMessage } = useCart();
+  const { cart, isOpen, setIsOpen, removeFromCart, updateQuantity, generateWhatsAppMessage, totalPrice } = useCart();
+  const [userName, setUserName] = useState('');
+  const [bookDate, setBookDate] = useState('');
+  const [error, setError] = useState('');
+
+  const now = new Date();
+  const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
 
   const handleWhatsApp = () => {
-    const message = generateWhatsAppMessage();
+    if (!userName.trim() || !bookDate) {
+      setError('Por favor completa tu nombre y la fecha deseada.');
+      return;
+    }
+    setError('');
+    const message = generateWhatsAppMessage(userName.trim(), bookDate);
     if (message) {
       window.open(`${SOCIAL.whatsapp}?text=${message}`, '_blank');
     }
@@ -43,46 +54,85 @@ const CartPanel = () => {
                 <p className="text-sm mt-2">Agrega servicios para reservar</p>
               </div>
             ) : (
-              <div className="space-y-4">
-                {cart.map((item) => (
-                  <div key={item.id} className="flex gap-4 p-4 bg-soft-blush/50 rounded-xl">
-                    <img 
-                      src={item.image} 
-                      alt={item.title}
-                      className="w-20 h-20 object-cover rounded-lg"
-                    />
-                    <div className="flex-1 flex flex-col justify-between">
-                      <h3 className="font-serif text-lg text-rich-black">{item.title}</h3>
-                      <div className="flex items-center gap-3">
-                        <button 
-                          onClick={() => updateQuantity(item.id, -1)}
-                          className="w-8 h-8 flex items-center justify-center bg-white border border-gold text-gold rounded-full hover:bg-gold hover:text-white transition-colors"
-                        >
-                          <Minus size={16} />
-                        </button>
-                        <span className="font-medium text-rich-black w-8 text-center">{item.quantity}</span>
-                        <button 
-                          onClick={() => updateQuantity(item.id, 1)}
-                          className="w-8 h-8 flex items-center justify-center bg-white border border-gold text-gold rounded-full hover:bg-gold hover:text-white transition-colors"
-                        >
-                          <Plus size={16} />
-                        </button>
-                      </div>
+              <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-3 pb-6 border-b border-gray-100">
+                  {error && (
+                    <div className="bg-red-50 text-red-500 text-sm p-3 rounded-lg border border-red-100 text-center animate-pulse">
+                      {error}
                     </div>
-                    <button 
-                      onClick={() => removeFromCart(item.id)}
-                      className="self-start p-2 text-gray-400 hover:text-red-500 transition-colors"
-                    >
-                      <Trash2 size={20} />
-                    </button>
+                  )}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Tu Nombre</label>
+                    <input 
+                      type="text" 
+                      value={userName}
+                      onChange={(e) => { setUserName(e.target.value); setError(''); }}
+                      placeholder="Ej. María Pérez"
+                      className="w-full p-3 rounded-lg border border-gray-200 focus:outline-none focus:border-gold transition-colors"
+                    />
                   </div>
-                ))}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Fecha Deseada</label>
+                    <input 
+                      type="date" 
+                      min={today}
+                      value={bookDate}
+                      onChange={(e) => { setBookDate(e.target.value); setError(''); }}
+                      className="w-full p-3 rounded-lg border border-gray-200 focus:outline-none focus:border-gold transition-colors"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  {cart.map((item) => (
+                    <div key={item.id} className="flex gap-4 p-4 bg-soft-blush/50 rounded-xl">
+                      <img 
+                        src={item.image} 
+                        alt={item.title}
+                        className="w-20 h-20 object-cover rounded-lg"
+                      />
+                      <div className="flex-1 flex flex-col justify-between">
+                        <div>
+                          <h3 className="font-serif text-lg text-rich-black leading-tight mb-1">{item.title}</h3>
+                          <p className="text-gold font-medium text-sm">${(item.price || 0).toLocaleString()} MXN</p>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <button 
+                            onClick={() => updateQuantity(item.id, -1)}
+                            className="w-8 h-8 flex items-center justify-center bg-white border border-gold text-gold rounded-full hover:bg-gold hover:text-white transition-colors"
+                          >
+                            <Minus size={16} />
+                          </button>
+                          <span className="font-medium text-rich-black w-8 text-center">{item.quantity}</span>
+                          <button 
+                            onClick={() => updateQuantity(item.id, 1)}
+                            className="w-8 h-8 flex items-center justify-center bg-white border border-gold text-gold rounded-full hover:bg-gold hover:text-white transition-colors"
+                          >
+                            <Plus size={16} />
+                          </button>
+                        </div>
+                      </div>
+                      <button 
+                        onClick={() => removeFromCart(item.id)}
+                        className="self-start p-2 text-gray-400 hover:text-red-500 transition-colors"
+                      >
+                        <Trash2 size={20} />
+                      </button>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
           </div>
 
           {/* Footer */}
           <div className="p-6 border-t border-gray-100">
+            {cart.length > 0 && (
+              <div className="flex items-center justify-between mb-6 pt-2">
+                <span className="font-serif text-xl text-rich-black">Total Estimado:</span>
+                <span className="font-sans text-xl font-bold text-gold">${totalPrice.toLocaleString()} MXN</span>
+              </div>
+            )}
             <button 
               onClick={handleWhatsApp}
               disabled={cart.length === 0}

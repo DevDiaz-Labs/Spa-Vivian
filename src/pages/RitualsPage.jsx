@@ -7,6 +7,8 @@ import Footer from '../components/Footer';
 import { FULL_MENU, CATEGORY_CONFIG, SOCIAL } from '../data/constants';
 import { useCart } from '../context/CartContext';
 
+import Watermark from '../components/Watermark';
+
 const RitualsPage = () => {
     const { addToCart } = useCart();
     
@@ -67,6 +69,7 @@ const RitualsPage = () => {
                                 alt={CATEGORY_CONFIG[activeCategory]?.title}
                                 className="w-full h-full object-cover"
                             />
+                            <Watermark className={`absolute ${activeCategory === 'specialized' ? 'bottom-16' : 'top-16'} right-16 w-32 opacity-40 pointer-events-none z-20`} />
                         </motion.div>
                     </AnimatePresence>
 
@@ -113,13 +116,14 @@ const RitualsPage = () => {
                             return (
                                 <section key={key} id={key} className="scroll-mt-32">
                                     {/* Mobile Image (Visible only on small screens) */}
-                                    <div className="lg:hidden mb-8 h-64 overflow-hidden rounded-sm relative">
+                                    <div className="lg:hidden mb-8 h-64 overflow-hidden rounded-sm relative group">
                                         <div className="absolute inset-0 bg-black/20 z-10" />
                                         <img
                                             src={config.image}
                                             alt={config.title}
-                                            className="w-full h-full object-cover"
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                         />
+                                        <Watermark className={`absolute ${key === 'specialized' ? 'bottom-8' : 'top-8'} right-8 w-20 opacity-60 pointer-events-none z-20`} />
                                         <div className="absolute bottom-4 left-4 z-20">
                                             <h3 className="text-white font-serif text-2xl italic">{config.title}</h3>
                                         </div>
@@ -138,14 +142,20 @@ const RitualsPage = () => {
                                                 key={idx}
                                                 onClick={() => addToCart({
                                                     id: `${key}-${idx}`,
-                                                    title: service,
-                                                    image: config.image
+                                                    title: service.title,
+                                                    image: config.image,
+                                                    price: service.price
                                                 })}
                                                 className="group flex items-center justify-between py-5 border-b border-[#D4AF37]/30 transition-all duration-300 hover:pl-4 hover:border-[#D4AF37] cursor-pointer"
                                             >
-                                                <span className="font-sans text-rich-black font-light tracking-wider text-sm md:text-base group-hover:text-[#D4AF37] transition-colors duration-300">
-                                                    {service}
-                                                </span>
+                                                <div className="flex flex-col">
+                                                    <span className="font-sans text-rich-black font-light tracking-wider text-sm md:text-base group-hover:text-[#D4AF37] transition-colors duration-300">
+                                                        {service.title}
+                                                    </span>
+                                                    <span className="font-sans text-[#D4AF37] text-xs mt-1 font-medium">
+                                                        ${service.price.toLocaleString()} MXN
+                                                    </span>
+                                                </div>
                                                 {/* Desktop: Text "Reservar" on hover */}
                                                 <button className="hidden lg:block text-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs tracking-widest uppercase font-medium">
                                                     Reservar
